@@ -8,5 +8,5 @@
 import Foundation
 
 struct Key {
-    static let secret = "cd11de44-ac1d-4336-a36e-af9f8274ae6d"
+    static let secret = ""
 }
