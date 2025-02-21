@@ -23,8 +23,9 @@ enum Endpoint {
         switch self {
         case .cards:
             var components = URLComponents(url: baseURL.appendingPathComponent("cards/"), resolvingAgainstBaseURL: false)
+            
             components!.queryItems = [
-                URLQueryItem(name: "q", value: "name:rapidash"),
+                URLQueryItem(name: "q", value: "\(SearchParameters.searchTerms)"),
             ]
         
             return components!.url!

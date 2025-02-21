@@ -3,39 +3,75 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		062109FD2D6798180013D97A /* NukeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062109FC2D6798180013D97A /* NukeOptions.swift */; };
+		062109FF2D67AA9F0013D97A /* Eazy Chat.otf in Resources */ = {isa = PBXBuildFile; fileRef = 062109FE2D67AA9F0013D97A /* Eazy Chat.otf */; };
+		06A747342D679140008B92DD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747152D679140008B92DD /* Card.swift */; };
+		06A747352D679140008B92DD /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747162D679140008B92DD /* CardSet.swift */; };
+		06A747362D679140008B92DD /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747172D679140008B92DD /* SearchType.swift */; };
+		06A747372D679140008B92DD /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747182D679140008B92DD /* Types.swift */; };
+		06A747382D679140008B92DD /* CachedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7471A2D679140008B92DD /* CachedData.swift */; };
+		06A747392D679140008B92DD /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7471C2D679140008B92DD /* DataManager.swift */; };
+		06A7473A2D679140008B92DD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7471D2D679140008B92DD /* Endpoint.swift */; };
+		06A7473B2D679140008B92DD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7471E2D679140008B92DD /* Errors.swift */; };
+		06A7473C2D679140008B92DD /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7471F2D679140008B92DD /* JSONDecoder.swift */; };
+		06A7473D2D679140008B92DD /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747202D679140008B92DD /* Key.swift */; };
+		06A7473E2D679140008B92DD /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747212D679140008B92DD /* Networker.swift */; };
+		06A7473F2D679140008B92DD /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747222D679140008B92DD /* NetworkMonitor.swift */; };
+		06A747402D679140008B92DD /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747242D679140008B92DD /* ViewModel.swift */; };
+		06A747412D679140008B92DD /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747262D679140008B92DD /* CardCollectionViewCell.swift */; };
+		06A747422D679140008B92DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747292D679140008B92DD /* ViewController.swift */; };
+		06A747432D679140008B92DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7472B2D679140008B92DD /* AppDelegate.swift */; };
+		06A747442D679140008B92DD /* CardStash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06A7472D2D679140008B92DD /* CardStash.xcdatamodeld */; };
+		06A747452D679140008B92DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747312D679140008B92DD /* SceneDelegate.swift */; };
+		06A747462D679140008B92DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A747282D679140008B92DD /* Main.storyboard */; };
+		06A747472D679140008B92DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06A7472C2D679140008B92DD /* Assets.xcassets */; };
+		06A747492D679140008B92DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A747302D679140008B92DD /* LaunchScreen.storyboard */; };
+		06EEA3A02D67B24C00680230 /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EEA39F2D67B24C00680230 /* SearchParameters.swift */; };
+		B5487153095FE1401846D0DD /* Pods_CardStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FE4246575CD8969E874A67 /* Pods_CardStash.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		062109FC2D6798180013D97A /* NukeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeOptions.swift; sourceTree = "<group>"; };
+		062109FE2D67AA9F0013D97A /* Eazy Chat.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eazy Chat.otf"; sourceTree = "<group>"; };
 		065429D52D66477D00E7789D /* CardStash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardStash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06A747152D679140008B92DD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		06A747162D679140008B92DD /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
+		06A747172D679140008B92DD /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
+		06A747182D679140008B92DD /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		06A7471A2D679140008B92DD /* CachedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedData.swift; sourceTree = "<group>"; };
+		06A7471C2D679140008B92DD /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		06A7471D2D679140008B92DD /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		06A7471E2D679140008B92DD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		06A7471F2D679140008B92DD /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
+		06A747202D679140008B92DD /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		06A747212D679140008B92DD /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		06A747222D679140008B92DD /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		06A747242D679140008B92DD /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		06A747262D679140008B92DD /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		06A747272D679140008B92DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		06A747292D679140008B92DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		06A7472B2D679140008B92DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		06A7472C2D679140008B92DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		06A7472E2D679140008B92DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06A7472F2D679140008B92DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		06A747312D679140008B92DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		06A747332D679140008B92DD /* CardStash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardStash.xcdatamodel; sourceTree = "<group>"; };
+		06EEA39F2D67B24C00680230 /* SearchParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
+		72FE4246575CD8969E874A67 /* Pods_CardStash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardStash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73F9AF57931DBABA336B6A3A /* Pods-CardStash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardStash.release.xcconfig"; path = "Target Support Files/Pods-CardStash/Pods-CardStash.release.xcconfig"; sourceTree = "<group>"; };
+		EDFB41B648AF318945908CD9 /* Pods-CardStash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardStash.debug.xcconfig"; path = "Target Support Files/Pods-CardStash/Pods-CardStash.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		065429EA2D66477E00E7789D /* Exceptions for "CardStash" folder in "CardStash" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 065429D42D66477D00E7789D /* CardStash */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		065429D72D66477D00E7789D /* CardStash */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				065429EA2D66477E00E7789D /* Exceptions for "CardStash" folder in "CardStash" target */,
-			);
-			path = CardStash;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		065429D22D66477D00E7789D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5487153095FE1401846D0DD /* Pods_CardStash.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,8 +81,10 @@
 		065429CC2D66477D00E7789D = {
 			isa = PBXGroup;
 			children = (
-				065429D72D66477D00E7789D /* CardStash */,
+				06A747322D679140008B92DD /* CardStash */,
 				065429D62D66477D00E7789D /* Products */,
+				6EC69A581F0FC78FBCCDBF20 /* Pods */,
+				A5F8F5B434A7B681A50BDDB0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +96,95 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		06A747192D679140008B92DD /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				06A747152D679140008B92DD /* Card.swift */,
+				06A747162D679140008B92DD /* CardSet.swift */,
+				06A747172D679140008B92DD /* SearchType.swift */,
+				06A747182D679140008B92DD /* Types.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
+		06A7471B2D679140008B92DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				06A747192D679140008B92DD /* Parsing */,
+				06A7471A2D679140008B92DD /* CachedData.swift */,
+				06EEA39F2D67B24C00680230 /* SearchParameters.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		06A747232D679140008B92DD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				06A7471C2D679140008B92DD /* DataManager.swift */,
+				06A7471D2D679140008B92DD /* Endpoint.swift */,
+				06A7471E2D679140008B92DD /* Errors.swift */,
+				06A7471F2D679140008B92DD /* JSONDecoder.swift */,
+				06A747202D679140008B92DD /* Key.swift */,
+				06A747212D679140008B92DD /* Networker.swift */,
+				06A747222D679140008B92DD /* NetworkMonitor.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		06A747252D679140008B92DD /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				06A747242D679140008B92DD /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		06A7472A2D679140008B92DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06A747262D679140008B92DD /* CardCollectionViewCell.swift */,
+				06A747282D679140008B92DD /* Main.storyboard */,
+				06A747292D679140008B92DD /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06A747322D679140008B92DD /* CardStash */ = {
+			isa = PBXGroup;
+			children = (
+				06A7471B2D679140008B92DD /* Models */,
+				06A747232D679140008B92DD /* Networking */,
+				06A747252D679140008B92DD /* ViewModels */,
+				06A7472A2D679140008B92DD /* Views */,
+				06A7472B2D679140008B92DD /* AppDelegate.swift */,
+				06A7472C2D679140008B92DD /* Assets.xcassets */,
+				062109FE2D67AA9F0013D97A /* Eazy Chat.otf */,
+				06A7472D2D679140008B92DD /* CardStash.xcdatamodeld */,
+				06A7472E2D679140008B92DD /* Info.plist */,
+				06A747302D679140008B92DD /* LaunchScreen.storyboard */,
+				062109FC2D6798180013D97A /* NukeOptions.swift */,
+				06A747312D679140008B92DD /* SceneDelegate.swift */,
+			);
+			path = CardStash;
+			sourceTree = "<group>";
+		};
+		6EC69A581F0FC78FBCCDBF20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDFB41B648AF318945908CD9 /* Pods-CardStash.debug.xcconfig */,
+				73F9AF57931DBABA336B6A3A /* Pods-CardStash.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A5F8F5B434A7B681A50BDDB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72FE4246575CD8969E874A67 /* Pods_CardStash.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,20 +192,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 065429EB2D66477E00E7789D /* Build configuration list for PBXNativeTarget "CardStash" */;
 			buildPhases = (
+				909728FD5583AC96B43209B1 /* [CP] Check Pods Manifest.lock */,
 				065429D12D66477D00E7789D /* Sources */,
 				065429D22D66477D00E7789D /* Frameworks */,
 				065429D32D66477D00E7789D /* Resources */,
+				1D5C0158E08FEB10C94B5E87 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				065429D72D66477D00E7789D /* CardStash */,
-			);
 			name = CardStash;
-			packageProductDependencies = (
-			);
 			productName = CardStash;
 			productReference = 065429D52D66477D00E7789D /* CardStash.app */;
 			productType = "com.apple.product-type.application";
@@ -99,6 +223,7 @@
 				};
 			};
 			buildConfigurationList = 065429D02D66477D00E7789D /* Build configuration list for PBXProject "CardStash" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -106,8 +231,6 @@
 				Base,
 			);
 			mainGroup = 065429CC2D66477D00E7789D;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 065429D62D66477D00E7789D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -122,30 +245,117 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A747462D679140008B92DD /* Main.storyboard in Resources */,
+				062109FF2D67AA9F0013D97A /* Eazy Chat.otf in Resources */,
+				06A747472D679140008B92DD /* Assets.xcassets in Resources */,
+				06A747492D679140008B92DD /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D5C0158E08FEB10C94B5E87 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CardStash/Pods-CardStash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CardStash/Pods-CardStash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CardStash/Pods-CardStash-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		909728FD5583AC96B43209B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CardStash-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		065429D12D66477D00E7789D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A747342D679140008B92DD /* Card.swift in Sources */,
+				06A747352D679140008B92DD /* CardSet.swift in Sources */,
+				06A747362D679140008B92DD /* SearchType.swift in Sources */,
+				06EEA3A02D67B24C00680230 /* SearchParameters.swift in Sources */,
+				06A747372D679140008B92DD /* Types.swift in Sources */,
+				06A747382D679140008B92DD /* CachedData.swift in Sources */,
+				06A747392D679140008B92DD /* DataManager.swift in Sources */,
+				06A7473A2D679140008B92DD /* Endpoint.swift in Sources */,
+				06A7473B2D679140008B92DD /* Errors.swift in Sources */,
+				06A7473C2D679140008B92DD /* JSONDecoder.swift in Sources */,
+				06A7473D2D679140008B92DD /* Key.swift in Sources */,
+				062109FD2D6798180013D97A /* NukeOptions.swift in Sources */,
+				06A7473E2D679140008B92DD /* Networker.swift in Sources */,
+				06A7473F2D679140008B92DD /* NetworkMonitor.swift in Sources */,
+				06A747402D679140008B92DD /* ViewModel.swift in Sources */,
+				06A747412D679140008B92DD /* CardCollectionViewCell.swift in Sources */,
+				06A747422D679140008B92DD /* ViewController.swift in Sources */,
+				06A747432D679140008B92DD /* AppDelegate.swift in Sources */,
+				06A747442D679140008B92DD /* CardStash.xcdatamodeld in Sources */,
+				06A747452D679140008B92DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		06A747282D679140008B92DD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06A747272D679140008B92DD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		06A747302D679140008B92DD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06A7472F2D679140008B92DD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		065429EC2D66477E00E7789D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDFB41B648AF318945908CD9 /* Pods-CardStash.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8R365GJ52;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CardStash/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Card Stash";
@@ -170,12 +380,14 @@
 		};
 		065429ED2D66477E00E7789D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73F9AF57931DBABA336B6A3A /* Pods-CardStash.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = A8R365GJ52;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CardStash/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Card Stash";
@@ -339,6 +551,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		06A7472D2D679140008B92DD /* CardStash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				06A747332D679140008B92DD /* CardStash.xcdatamodel */,
+			);
+			currentVersion = 06A747332D679140008B92DD /* CardStash.xcdatamodel */;
+			path = CardStash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 065429CD2D66477D00E7789D /* Project object */;
 }
