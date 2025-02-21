@@ -35,6 +35,13 @@ public class ViewModel {
         }
     }
     
+    func getInitialCards() {
+        SearchParameters.cardSet = "base"
+        SearchParameters.name = "charizard"
+        
+        createSearchTerms()
+    }
+    
     func getCardCount() -> Int {
         return CachedData.cards.count
     }
@@ -67,57 +74,116 @@ public class ViewModel {
             SearchParameters.name = search
             SearchParameters.pokedexNumber = 0
         }
+        // TODO: remove
+        SearchParameters.cardSet = ""
         
         createSearchTerms()
     }
     
-    func setSorting(kind: Int) {
+    func setSorting(kind: Sorting) {
+        // TODO: Apply sorting on existing cards without new query
         switch kind {
-        case 0:
+        case .auto:
             // auto
             SearchParameters.sorting = ""
-        case 1:
+        case .cardSetAZ:
             // card set ascending
-            SearchParameters.sorting = "?orderBy:set"
-        case 2:
+            SearchParameters.sorting = "set.name"
+        case .cardSetZA:
             // card set descending
-            SearchParameters.sorting = "?orderBy:-set"
-        case 3:
+            SearchParameters.sorting = "-set.name"
+        case .hpLowHigh:
             // HP ascending
-            SearchParameters.sorting = "?orderBy:hp"
-        case 4:
+            SearchParameters.sorting = "hp"
+        case .hpHighLow:
             // HP descending
-            SearchParameters.sorting = "?orderBy:-hp"
-        case 5:
+            SearchParameters.sorting = "-hp"
+        case .nameAZ:
             // name ascending
-            SearchParameters.sorting = "?orderBy:name"
-        case 6:
+            SearchParameters.sorting = "name"
+        case .nameZA:
             // name descending
-            SearchParameters.sorting = "?orderBy:-name"
-        case 7:
+            SearchParameters.sorting = "-name"
+        case .numberLowHigh:
             // number ascending
-            SearchParameters.sorting = "?orderBy:nationalPokedexNumbers"
-        case 8:
+            SearchParameters.sorting = "nationalPokedexNumbers"
+        case .numberHighLow:
             // number descending
-            SearchParameters.sorting = "?orderBy:-nationalPokedexNumbers"
-        default:
-            break
+            SearchParameters.sorting = "-nationalPokedexNumbers"
         }
+    }
+    
+    func setFilters() {
+
+    }
+    
+    func addSearchTerms(base: String) -> String {
+        var compiled = base
+        
+        if SearchParameters.cardSet != "" {
+            compiled += " set.name:\(SearchParameters.cardSet)"
+        }
+        
+        if SearchParameters.type != "" {
+            compiled += " types:\(SearchParameters.type)"
+        }
+        
+        if SearchParameters.weakness != "" {
+            compiled += " weaknesses.type:\(SearchParameters.weakness)"
+        }
+        
+        if SearchParameters.resistance != "" {
+            compiled += " resistances.type:\(SearchParameters.resistance)"
+        }
+        
+        if SearchParameters.retreatCost != -1 {
+            compiled += " convertedRetreatCost:\(SearchParameters.retreatCost)"
+        }
+        
+        // legality
+        // holo
+        
+        if SearchParameters.stage != "" {
+            compiled += " subtypes:\(SearchParameters.stage)"
+        }
+        
+        if SearchParameters.rarity != "" {
+            compiled += " rarity:\(SearchParameters.rarity)"
+        }
+        
+        if SearchParameters.ability != "" {
+            compiled += " abilities.name:\(SearchParameters.ability)"
+        }
+        
+        if SearchParameters.move != "" {
+            compiled += " attacks.name:\(SearchParameters.move)"
+        }
+        
+        return compiled
     }
     
     func createSearchTerms() {
         if SearchParameters.name != "" {
-            if SearchParameters.sorting == "" {
-                SearchParameters.searchTerms = "name:\(SearchParameters.name)"
-            } else {
-                SearchParameters.searchTerms = "name:\(SearchParameters.name)\(SearchParameters.sorting)"
-            }
+            var base = "name:\(SearchParameters.name)"
+            
+            var compiledSearch = addSearchTerms(base: base)
+            SearchParameters.searchTerms = compiledSearch
+            print("search terms")
+            print(compiledSearch)
         } else if SearchParameters.pokedexNumber != 0 {
-            if SearchParameters.sorting == "" {
-                SearchParameters.searchTerms = "nationalPokedexNumbers:\(SearchParameters.pokedexNumber)"
-            } else {
-                SearchParameters.searchTerms = "nationalPokedexNumbers:\(SearchParameters.pokedexNumber)\(SearchParameters.sorting)"
-            }
+            var base = "\(SearchParameters.pokedexNumber)"
+            
+            var compiledSearch = addSearchTerms(base: base)
+            SearchParameters.searchTerms = compiledSearch
+            print("search terms")
+            print(compiledSearch)
+        } else {
+            var compiledSearch = addSearchTerms(base: "")
+            // filters only, no search terms so drop first space character
+            var new = compiledSearch.dropFirst(1)
+            SearchParameters.searchTerms = String(new)
+            print("search terms")
+            print(compiledSearch)
         }
     }
 }

@@ -22,6 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bokehbackground" translatesAutoresizingMaskIntoConstraints="NO" id="XbP-KP-iEM">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2q-3s-Q35">
                                 <rect key="frame" x="0.0" y="59" width="388" height="35"/>
                                 <subviews>
@@ -45,6 +48,41 @@
                                         <connections>
                                             <action selector="pressGo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AM2-eR-wSg"/>
                                         </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dlw-FU-tG0">
+                                <rect key="frame" x="10" y="104" width="310" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c76-tn-2uW">
+                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="35"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Filters"/>
+                                        <connections>
+                                            <action selector="filtersPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hhA-l3-Jez"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1D-3K-osC">
+                                        <rect key="frame" x="111.66666666666667" y="0.0" width="198.33333333333331" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="tdk-ur-PIZ"/>
+                                        </constraints>
+                                        <menu key="menu" id="img-v9-w1l">
+                                            <menuOptions key="menuOptions" singleSelection="YES"/>
+                                            <children>
+                                                <command title="Sorting (Auto)" menuElementState="on" id="u4g-xq-QXt"/>
+                                                <command title="Card Set A-Z" id="sfd-f1-CbO"/>
+                                                <command title="Card Set Z-A" id="xgI-kT-Hzh"/>
+                                                <command title="HP Low-High" id="mEP-cE-peT"/>
+                                                <command title="HP High-Low" id="z1F-4i-jPh"/>
+                                                <command title="Name A-Z" id="S4h-AR-Uhl"/>
+                                                <command title="Name Z-A" id="G6S-PP-Vwc"/>
+                                                <command title="Number Low-High" id="hTx-1B-oVS"/>
+                                                <command title="Number High-Low" id="Wek-yw-hN0"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Sort By"/>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -122,41 +160,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dlw-FU-tG0">
-                                <rect key="frame" x="10" y="104" width="310" height="35"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c76-tn-2uW">
-                                        <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="35"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Filters"/>
-                                        <connections>
-                                            <action selector="filtersPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Twp-EK-cUq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1D-3K-osC">
-                                        <rect key="frame" x="111.66666666666667" y="0.0" width="198.33333333333331" height="35"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="tdk-ur-PIZ"/>
-                                        </constraints>
-                                        <menu key="menu" id="img-v9-w1l">
-                                            <menuOptions key="menuOptions" singleSelection="YES"/>
-                                            <children>
-                                                <command title="Sorting (Auto)" menuElementState="on" id="u4g-xq-QXt"/>
-                                                <command title="Card Set Ascending" id="sfd-f1-CbO"/>
-                                                <command title="Card Set Descending" id="xgI-kT-Hzh"/>
-                                                <command title="HP Ascending" id="mEP-cE-peT"/>
-                                                <command title="HP Descending" id="z1F-4i-jPh"/>
-                                                <command title="Name Ascending" id="S4h-AR-Uhl"/>
-                                                <command title="Name Descending" id="G6S-PP-Vwc"/>
-                                                <command title="Number Ascending" id="hTx-1B-oVS"/>
-                                                <command title="Number Descending" id="Wek-yw-hN0"/>
-                                            </children>
-                                        </menu>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Sort By"/>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" id="lk4-oT-YIJ">
+                                <rect key="frame" x="2" y="101" width="388" height="650"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEy-j8-3LC">
+                                <rect key="frame" x="0.0" y="147" width="393" height="316"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="jSy-SB-Xvb" kind="embed" id="Fwe-Ty-6Yk"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.13346338923460152" green="0.028504783597039285" blue="0.26694681186868685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -164,33 +179,267 @@
                             <constraint firstItem="p2q-3s-Q35" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="55s-Wl-LIx"/>
                             <constraint firstItem="Dlw-FU-tG0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="7TU-NS-jNB"/>
                             <constraint firstItem="Dlw-FU-tG0" firstAttribute="top" secondItem="p2q-3s-Q35" secondAttribute="bottom" constant="10" id="7hH-Pb-Sl1"/>
+                            <constraint firstItem="XbP-KP-iEM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Cuv-xN-zqq"/>
+                            <constraint firstItem="XbP-KP-iEM" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Pef-vp-q9J"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NYg-U9-gKH" secondAttribute="trailing" constant="2.5" id="T90-sj-1Tz"/>
                             <constraint firstItem="p2q-3s-Q35" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="TCA-YZ-Zqe"/>
                             <constraint firstItem="NYg-U9-gKH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="92" id="Ytk-M1-mRy"/>
+                            <constraint firstItem="XbP-KP-iEM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZkK-1h-sqG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Dlw-FU-tG0" secondAttribute="trailing" constant="73" id="aR5-gb-hWb"/>
+                            <constraint firstAttribute="bottom" secondItem="XbP-KP-iEM" secondAttribute="bottom" id="gl9-1a-T8M"/>
                             <constraint firstItem="NYg-U9-gKH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2.5" id="ikR-Ub-CJZ"/>
                             <constraint firstAttribute="trailing" secondItem="p2q-3s-Q35" secondAttribute="trailing" constant="5" id="txU-pz-5Xa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="lk4-oT-YIJ" id="C7s-Uz-qxS"/>
                         <outlet property="collectionView" destination="NYg-U9-gKH" id="IgM-mb-z6y"/>
+                        <outlet property="filtersContainer" destination="HEy-j8-3LC" id="odi-zi-2Im"/>
                         <outlet property="searchBar" destination="yoW-V5-L1J" id="Zen-LD-HdS"/>
-                        <outletCollection property="sorting" destination="sfd-f1-CbO" collectionClass="NSMutableArray" id="GQc-6b-JuE"/>
-                        <outletCollection property="sorting" destination="xgI-kT-Hzh" collectionClass="NSMutableArray" id="bS1-Wd-UY7"/>
-                        <outletCollection property="sorting" destination="mEP-cE-peT" collectionClass="NSMutableArray" id="zPt-KA-xxQ"/>
-                        <outletCollection property="sorting" destination="z1F-4i-jPh" collectionClass="NSMutableArray" id="CKX-we-qUJ"/>
-                        <outletCollection property="sorting" destination="S4h-AR-Uhl" collectionClass="NSMutableArray" id="fjk-JL-yhA"/>
-                        <outletCollection property="sorting" destination="G6S-PP-Vwc" collectionClass="NSMutableArray" id="uWq-bB-uGg"/>
-                        <outletCollection property="sorting" destination="hTx-1B-oVS" collectionClass="NSMutableArray" id="EPc-qg-Ctb"/>
-                        <outletCollection property="sorting" destination="Wek-yw-hN0" collectionClass="NSMutableArray" id="fid-0g-b1q"/>
+                        <outlet property="sortingButton" destination="K1D-3K-osC" id="RgU-km-Zq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="3.5211267605633805"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="B9A-HB-ZTV">
+            <objects>
+                <viewController id="jSy-SB-Xvb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xta-Kc-UBl">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="316"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCZ-ml-qtS">
+                                <rect key="frame" x="3" y="3" width="387" height="310"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bokehbackground" translatesAutoresizingMaskIntoConstraints="NO" id="Bt1-gQ-Ehd">
+                                        <rect key="frame" x="0.0" y="0.0" width="387" height="310"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1334633892" green="0.0285047836" blue="0.26694681190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Bt1-gQ-Ehd" secondAttribute="bottom" id="bGh-aA-pzt"/>
+                                    <constraint firstItem="Bt1-gQ-Ehd" firstAttribute="leading" secondItem="fCZ-ml-qtS" secondAttribute="leading" id="k62-LC-CpU"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bt1-gQ-Ehd" secondAttribute="trailing" id="qbp-2e-j6I"/>
+                                    <constraint firstItem="Bt1-gQ-Ehd" firstAttribute="top" secondItem="fCZ-ml-qtS" secondAttribute="top" id="rel-zI-VUE"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-J6-NXn">
+                                <rect key="frame" x="24" y="19.999999999999996" width="345" height="59.666666666666657"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ukO-0H-UWK">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="59.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-ZH-LLz">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNE-qg-MFg">
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <menu key="menu" id="0pZ-Fc-Ofw">
+                                                    <children>
+                                                        <command title="Any" menuElementState="on" id="qeJ-ui-eEQ"/>
+                                                        <command title="Colorless" id="NcY-Rl-HFn"/>
+                                                        <command title="Fire" id="1Ae-u9-ADC"/>
+                                                        <command title="Lightning" id="7rB-1a-bJE"/>
+                                                        <command title="Grass" id="dge-vQ-nfE"/>
+                                                        <command title="Water" id="NRx-6o-7uF"/>
+                                                        <command title="Psychic" id="FrZ-sR-BTf"/>
+                                                        <command title="Darkness" id="ZF6-aQ-qGd"/>
+                                                        <command title="Fairy" id="AXz-1t-0ST"/>
+                                                        <command title="Dragon" id="KtB-36-z77"/>
+                                                        <command title="Metal" id="Ied-lR-xeT"/>
+                                                        <command title="Fighting" id="s0L-jr-GwS"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xgD-Ux-diy">
+                                        <rect key="frame" x="120" y="0.0" width="105" height="59.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weakness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyz-7W-eIk">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDq-vM-61R">
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <menu key="menu" id="Gox-c2-NaS">
+                                                    <children>
+                                                        <command title="Any" menuElementState="on" id="olC-D5-tgq"/>
+                                                        <command title="Colorless" id="FxK-z1-CiB"/>
+                                                        <command title="Fire" id="lSB-bO-Esl"/>
+                                                        <command title="Lightning" id="sOk-66-dI5"/>
+                                                        <command title="Grass" id="cK8-L8-G83"/>
+                                                        <command title="Water" id="50c-xG-Y8U"/>
+                                                        <command title="Psychic" id="1VM-Gp-auG"/>
+                                                        <command title="Darkness" id="nAI-gK-qaE"/>
+                                                        <command title="Fairy" id="vfy-8F-rVM"/>
+                                                        <command title="Dragon" id="6jq-bV-cdS"/>
+                                                        <command title="Metal" id="v3b-7t-Qul"/>
+                                                        <command title="Fighting" id="C42-Ff-uEk"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B23-3x-g77">
+                                        <rect key="frame" x="240" y="0.0" width="105" height="59.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resistance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Z-ez-lbZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-K3-cIn">
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <menu key="menu" id="SyX-Y2-9Dt">
+                                                    <children>
+                                                        <command title="Any" menuElementState="on" id="8Ie-qo-u8n"/>
+                                                        <command title="Colorless" id="lgr-UK-OZF"/>
+                                                        <command title="Fire" id="H5l-jF-VGm"/>
+                                                        <command title="Lightning" id="ovQ-ze-uNi"/>
+                                                        <command title="Grass" id="3QY-RE-syT"/>
+                                                        <command title="Water" id="rg5-ta-qEf"/>
+                                                        <command title="Psychic" id="FLk-5r-soP"/>
+                                                        <command title="Darkness" id="Oyc-Ie-baY"/>
+                                                        <command title="Fairy" id="TaU-Jt-TMX"/>
+                                                        <command title="Dragon" id="nyu-Sq-G0n"/>
+                                                        <command title="Metal" id="e9G-VY-Pne"/>
+                                                        <command title="Fighting" id="c1l-wI-xGe"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-ra-rtp">
+                                <rect key="frame" x="24" y="105.66666666666667" width="345" height="59.666666666666671"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-pL-HRn">
+                                        <rect key="frame" x="0.0" y="0.0" width="105" height="59.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retreat Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mov-YF-Mjl">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bR-31-NWu">
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <menu key="menu" id="gE5-5o-9RW">
+                                                    <children>
+                                                        <command title="Any" menuElementState="on" id="xpY-uO-cBH"/>
+                                                        <command title="0" id="2uX-B9-fkg"/>
+                                                        <command title="1" id="nUa-hl-msi"/>
+                                                        <command title="2" id="UPV-3k-siC"/>
+                                                        <command title="3" id="R4s-Fk-c00"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-8Q-MXM">
+                                        <rect key="frame" x="120" y="0.0" width="105" height="59.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhE-Fk-kr3">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAs-as-ha1">
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <menu key="menu" id="RC5-PQ-AZB">
+                                                    <children>
+                                                        <command title="Any" menuElementState="on" id="Vzm-oy-fG6"/>
+                                                        <command title="Stage 1" id="RM4-h1-cht"/>
+                                                        <command title="Stage 2" id="s9U-vj-Na7"/>
+                                                        <command title="Stage 3" id="DFb-8R-zyb"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2mv-C6-ocj">
+                                        <rect key="frame" x="240" y="0.0" width="105" height="59.666666666666664"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MN-N0-dUh">
+                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-6Z-ARf">
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <menu key="menu" id="QHA-qS-i6m">
+                                                    <children>
+                                                        <command title="Any" menuElementState="on" id="y4J-za-w3L"/>
+                                                        <command title="Energy" id="OaX-il-IzD"/>
+                                                        <command title="Pokemon" id="cbJ-0x-NBk"/>
+                                                        <command title="Trainer" id="r4Q-LY-HUz"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.060035121387298766" green="0.2415759841865989" blue="0.41717317248835706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="4tn-ra-rtp" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leadingMargin" constant="8" id="3qH-oe-epf"/>
+                            <constraint firstItem="4tn-ra-rtp" firstAttribute="top" secondItem="uJn-J6-NXn" secondAttribute="bottom" constant="26" id="4jy-hH-qjK"/>
+                            <constraint firstAttribute="trailing" secondItem="uJn-J6-NXn" secondAttribute="trailing" constant="24" id="8Lz-bf-yL9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4tn-ra-rtp" secondAttribute="trailing" constant="8" id="8dW-Fb-N7h"/>
+                            <constraint firstItem="fCZ-ml-qtS" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="3" id="DF9-40-V7N"/>
+                            <constraint firstItem="fCZ-ml-qtS" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="3" id="RCM-On-d11"/>
+                            <constraint firstItem="uJn-J6-NXn" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="24" id="fAr-AI-ZDy"/>
+                            <constraint firstItem="uJn-J6-NXn" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="20" symbolic="YES" id="gda-kR-4Lt"/>
+                            <constraint firstAttribute="bottom" secondItem="fCZ-ml-qtS" secondAttribute="bottom" constant="3" id="hCC-yo-MUo"/>
+                            <constraint firstAttribute="trailing" secondItem="fCZ-ml-qtS" secondAttribute="trailing" constant="3" id="vRM-Kw-F6h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YrM-7W-K6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="765.64885496183206" y="-101.40845070422536"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bokehbackground" width="2100" height="2800"/>
         <image name="cardplaceholder" width="734" height="1024"/>
     </resources>
 </document>

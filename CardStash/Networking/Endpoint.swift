@@ -22,17 +22,22 @@ enum Endpoint {
     func url() -> URL {
         switch self {
         case .cards:
-            var components = URLComponents(url: baseURL.appendingPathComponent("cards/"), resolvingAgainstBaseURL: false)
+            var components = URLComponents(url: baseURL.appendingPathComponent("cards"), resolvingAgainstBaseURL: false)
             
             components!.queryItems = [
-                URLQueryItem(name: "q", value: "\(SearchParameters.searchTerms)"),
+                URLQueryItem(name: "q", value: "\(SearchParameters.searchTerms)")
             ]
-        
+            
+            if SearchParameters.sorting != "" {
+                components!.queryItems?.append(URLQueryItem(name: "orderBy", value: "\(SearchParameters.sorting)"))
+            }
+            
+            print(components!.url!)
             return components!.url!
         case .cardSets:
             var components = URLComponents(url: baseURL.appendingPathComponent("sets/"), resolvingAgainstBaseURL: false)
             components!.queryItems = [
-                URLQueryItem(name: "q", value: "name:sword"),
+                URLQueryItem(name: "q", value: "name:\(SearchParameters.cardSet)"),
             ]
             
             return components!.url!

@@ -43,9 +43,9 @@ struct Networker {
                 print("status was not 200")
                 print(httpResponse.statusCode)
 
-                DispatchQueue.main.async {
+                /*DispatchQueue.main.async {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "networkErrorAlert"), object: nil)
-                }
+                }*/
             }
         }
         task.resume()
