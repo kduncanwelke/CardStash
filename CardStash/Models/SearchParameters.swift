@@ -23,7 +23,11 @@ struct SearchParameters {
     static var move: String = "" // need search
     
     static var sorting: String = ""
+    static var sortingKind: Sorting = .auto
+    static var isNewSearch: Bool = true
     static var searchTerms: String = ""
+    
+    static var prevSearch: String = ""
 }
 
 enum Sorting {

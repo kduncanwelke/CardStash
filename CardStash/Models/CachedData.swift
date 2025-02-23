@@ -10,8 +10,10 @@ import Foundation
 struct CachedData {
     static var cards: [Card] = []
     static var cardSets: [CardSets] = []
-    static var ypes: [String] = []
+    static var types: [String] = []
     static var subtypes: [String] = []
     static var superTypes: [String] = []
     static var rarities: [String] = []
+    
+    static var sorted: [Card] = []
 }

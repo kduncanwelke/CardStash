@@ -17,10 +17,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var filtersContainer: UIView!
     
+    
     // MARK: Variables
     
     private let viewModel = ViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,7 +32,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         searchBar.searchTextField.textColor = UIColor.white
         searchBar.searchTextField.tintColor = UIColor.lightGray
         
-        configurePopUpButton()
+        configureSortingPopUpButton()
         
         viewModel.getInitialCards()
         getCards()
@@ -39,50 +40,67 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // MARK: Custom functions
     
-    func configurePopUpButton() {
+    func searchAndSort() {
+        if let searchText = searchBar.text {
+            viewModel.setSearch(search: searchText, completion: { [weak self] in
+                self?.reloadForSorting()
+            })
+        }
+    }
+    
+    func configureSortingPopUpButton() {
         let autoSort = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .auto)
-            getCards()
+            self.viewModel.setSorting(kind: .auto, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let cardSetAZ = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .cardSetAZ)
-            getCards()
+            self.viewModel.setSorting(kind: .cardSetAZ, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let cardSetZA = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .cardSetZA)
-            getCards()
+            self.viewModel.setSorting(kind: .cardSetZA, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let hpLowHigh = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .hpLowHigh)
-            getCards()
+            self.viewModel.setSorting(kind: .hpLowHigh, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let hpHighLow = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .hpHighLow)
-            getCards()
+            self.viewModel.setSorting(kind: .hpHighLow, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let nameAZ = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .nameAZ)
-            getCards()
+            self.viewModel.setSorting(kind: .nameAZ, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let nameZA = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .nameZA)
-            getCards()
+            self.viewModel.setSorting(kind: .nameZA, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let numberLowHigh = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .numberLowHigh)
-            getCards()
+            self.viewModel.setSorting(kind: .numberLowHigh, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         let numberHighLow = { [unowned self] (action: UIAction) in
-            self.viewModel.setSorting(kind: .numberHighLow)
-            getCards()
+            self.viewModel.setSorting(kind: .numberHighLow, completion: { [weak self] in
+                self?.searchAndSort()
+            })
         }
         
         sortingButton.menu = UIMenu(children: [
@@ -96,6 +114,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             UIAction(title: "Number Low-High", handler: numberLowHigh),
             UIAction(title: "Number High-Low", handler: numberHighLow)
         ])
+    }
+    
+    func reloadForSorting() {
+        print(SearchParameters.isNewSearch)
+        if viewModel.isNewSearch() {
+            getCards()
+            print("api call")
+        } else {
+            print("reload")
+            activityIndicator.startAnimating()
+            collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+            collectionView.reloadData()
+            activityIndicator.stopAnimating()
+        }
     }
     
     func getCards() {
@@ -113,8 +145,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBAction func pressGo(_ sender: UIButton) {
         if let searchText = searchBar.text {
-            viewModel.setSearch(search: searchText)
-            getCards()
+            viewModel.setSearch(search: searchText, completion: { [weak self] in
+                self?.getCards()
+            })
         }
     }
     
