@@ -21,6 +21,7 @@ struct SearchParameters {
     static var rarity: String = ""
     static var ability: String = "" // need search
     static var move: String = "" // need search
+    static var superType: String = "" // added
     
     static var sorting: String = ""
     static var sortingKind: Sorting = .auto
@@ -40,4 +41,34 @@ enum Sorting {
     case nameZA
     case numberLowHigh
     case numberHighLow
+}
+
+enum PokemonType {
+    case any
+    case colorless
+    case fire
+    case lightning
+    case grass
+    case water
+    case psychic
+    case darkness
+    case fairy
+    case dragon
+    case metal
+    case fighting
+}
+
+enum PokemonStage {
+    case any
+    case baby
+    case basic
+    case stage1
+    case stage2
+}
+
+enum CardType {
+    case any
+    case pokemon
+    case energy
+    case trainer
 }

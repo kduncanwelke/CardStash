@@ -144,6 +144,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: IBActions
     
     @IBAction func pressGo(_ sender: UIButton) {
+        if filtersContainer.isHidden == false {
+            filtersContainer.isHidden = true
+        }
+        
         if let searchText = searchBar.text {
             viewModel.setSearch(search: searchText, completion: { [weak self] in
                 self?.getCards()

@@ -205,8 +205,123 @@ public class ViewModel {
         return SearchParameters.isNewSearch
     }
     
-    func setFilters() {
-
+    func setTypeFilter(kind: PokemonType) {
+        switch kind {
+        case .any:
+            SearchParameters.type = ""
+        case .colorless:
+            SearchParameters.type = "colorless"
+        case .fire:
+            SearchParameters.type = "fire"
+        case .lightning:
+            SearchParameters.type = "lightning"
+        case .grass:
+            SearchParameters.type = "grass"
+        case .water:
+            SearchParameters.type = "water"
+        case .psychic:
+            SearchParameters.type = "psychic"
+        case .darkness:
+            SearchParameters.type = "darkness"
+        case .fairy:
+            SearchParameters.type = "fairy"
+        case .dragon:
+            SearchParameters.type = "dragon"
+        case .metal:
+            SearchParameters.type = "metal"
+        case .fighting:
+            SearchParameters.type = "fighting"
+        }
+    }
+    
+    func setWeaknessFilter(kind: PokemonType) {
+        switch kind {
+        case .any:
+            SearchParameters.weakness = ""
+        case .colorless:
+            SearchParameters.weakness = "colorless"
+        case .fire:
+            SearchParameters.weakness = "fire"
+        case .lightning:
+            SearchParameters.weakness = "lightning"
+        case .grass:
+            SearchParameters.weakness = "grass"
+        case .water:
+            SearchParameters.weakness = "water"
+        case .psychic:
+            SearchParameters.weakness = "psychic"
+        case .darkness:
+            SearchParameters.weakness = "darkness"
+        case .fairy:
+            SearchParameters.weakness = "fairy"
+        case .dragon:
+            SearchParameters.weakness = "dragon"
+        case .metal:
+            SearchParameters.weakness = "metal"
+        case .fighting:
+            SearchParameters.weakness = "fighting"
+        }
+    }
+    
+    func setResistanceFilter(kind: PokemonType) {
+        switch kind {
+        case .any:
+            SearchParameters.resistance = ""
+        case .colorless:
+            SearchParameters.resistance = "colorless"
+        case .fire:
+            SearchParameters.resistance = "fire"
+        case .lightning:
+            SearchParameters.resistance = "lightning"
+        case .grass:
+            SearchParameters.resistance = "grass"
+        case .water:
+            SearchParameters.resistance = "water"
+        case .psychic:
+            SearchParameters.resistance = "psychic"
+        case .darkness:
+            SearchParameters.resistance = "darkness"
+        case .fairy:
+            SearchParameters.resistance = "fairy"
+        case .dragon:
+            SearchParameters.resistance = "dragon"
+        case .metal:
+            SearchParameters.resistance = "metal"
+        case .fighting:
+            SearchParameters.resistance = "fighting"
+        }
+    }
+    
+    func setStageFilter(kind: PokemonStage) {
+        switch kind {
+        case .any:
+            SearchParameters.stage = ""
+        case .baby:
+            SearchParameters.stage = "baby"
+        case .basic:
+            SearchParameters.stage = "basic"
+        case .stage1:
+            SearchParameters.stage = "stage1"
+        case.stage2:
+            SearchParameters.stage = "stage2"
+        }
+    }
+    
+    func setCardTypeFilter(kind: CardType) {
+        switch kind {
+        case .any:
+            SearchParameters.superType = ""
+        case .pokemon:
+            SearchParameters.superType = "pokemon"
+        case .energy:
+            SearchParameters.superType = "energy"
+        case .trainer:
+            SearchParameters.superType = "trainer"
+        }
+    }
+    
+    func setRetreatCostFilter(amount: Int) {
+        SearchParameters.retreatCost = amount
     }
     
     func addSearchTerms(base: String) -> String {
@@ -234,6 +349,10 @@ public class ViewModel {
         
         // legality
         // holo
+        
+        if SearchParameters.superType != "" {
+            compiled += " supertype:\(SearchParameters.superType)"
+        }
         
         if SearchParameters.stage != "" {
             compiled += " subtypes:\(SearchParameters.stage)"

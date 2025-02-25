@@ -203,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Filter View Controller-->
         <scene sceneID="B9A-HB-ZTV">
             <objects>
-                <viewController id="jSy-SB-Xvb" sceneMemberID="viewController">
+                <viewController id="jSy-SB-Xvb" customClass="FilterViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xta-Kc-UBl">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="316"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,20 +226,20 @@
                                     <constraint firstItem="Bt1-gQ-Ehd" firstAttribute="top" secondItem="fCZ-ml-qtS" secondAttribute="top" id="rel-zI-VUE"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-J6-NXn">
-                                <rect key="frame" x="24" y="19.999999999999996" width="345" height="59.666666666666657"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-J6-NXn">
+                                <rect key="frame" x="15" y="19.999999999999996" width="363" height="59.666666666666657"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ukO-0H-UWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="59.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-ZH-LLz">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNE-qg-MFg">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
                                                 <menu key="menu" id="0pZ-Fc-Ofw">
                                                     <children>
                                                         <command title="Any" menuElementState="on" id="qeJ-ui-eEQ"/>
@@ -258,22 +258,22 @@
                                                 </menu>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                                 </buttonConfiguration>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xgD-Ux-diy">
-                                        <rect key="frame" x="120" y="0.0" width="105" height="59.666666666666664"/>
+                                        <rect key="frame" x="124.33333333333334" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weakness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyz-7W-eIk">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDq-vM-61R">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
                                                 <menu key="menu" id="Gox-c2-NaS">
                                                     <children>
                                                         <command title="Any" menuElementState="on" id="olC-D5-tgq"/>
@@ -298,16 +298,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B23-3x-g77">
-                                        <rect key="frame" x="240" y="0.0" width="105" height="59.666666666666664"/>
+                                        <rect key="frame" x="248.66666666666671" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resistance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Z-ez-lbZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-K3-cIn">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
                                                 <menu key="menu" id="SyX-Y2-9Dt">
                                                     <children>
                                                         <command title="Any" menuElementState="on" id="8Ie-qo-u8n"/>
@@ -333,20 +333,20 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-ra-rtp">
-                                <rect key="frame" x="24" y="105.66666666666667" width="345" height="59.666666666666671"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-ra-rtp">
+                                <rect key="frame" x="16" y="105.66666666666667" width="361" height="59.666666666666671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-pL-HRn">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="59.666666666666664"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="59.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retreat Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mov-YF-Mjl">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bR-31-NWu">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="113.66666666666667" height="34.333333333333343"/>
                                                 <menu key="menu" id="gE5-5o-9RW">
                                                     <children>
                                                         <command title="Any" menuElementState="on" id="xpY-uO-cBH"/>
@@ -354,6 +354,8 @@
                                                         <command title="1" id="nUa-hl-msi"/>
                                                         <command title="2" id="UPV-3k-siC"/>
                                                         <command title="3" id="R4s-Fk-c00"/>
+                                                        <command title="4" id="p8S-uF-cuF"/>
+                                                        <command title="5" id="0k9-a4-HxD"/>
                                                     </children>
                                                 </menu>
                                                 <state key="normal" title="Button"/>
@@ -364,22 +366,23 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-8Q-MXM">
-                                        <rect key="frame" x="120" y="0.0" width="105" height="59.666666666666664"/>
+                                        <rect key="frame" x="123.66666666666666" y="0.0" width="113.66666666666666" height="59.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhE-Fk-kr3">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAs-as-ha1">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="113.66666666666667" height="34.333333333333343"/>
                                                 <menu key="menu" id="RC5-PQ-AZB">
                                                     <children>
                                                         <command title="Any" menuElementState="on" id="Vzm-oy-fG6"/>
-                                                        <command title="Stage 1" id="RM4-h1-cht"/>
+                                                        <command title="Baby" id="RM4-h1-cht"/>
+                                                        <command title="Basic" id="b99-qS-qbL"/>
+                                                        <command title="Stage 1" id="SZf-Pu-gbd"/>
                                                         <command title="Stage 2" id="s9U-vj-Na7"/>
-                                                        <command title="Stage 3" id="DFb-8R-zyb"/>
                                                     </children>
                                                 </menu>
                                                 <state key="normal" title="Button"/>
@@ -390,16 +393,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2mv-C6-ocj">
-                                        <rect key="frame" x="240" y="0.0" width="105" height="59.666666666666664"/>
+                                        <rect key="frame" x="247.33333333333329" y="0.0" width="113.66666666666666" height="59.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MN-N0-dUh">
-                                                <rect key="frame" x="0.0" y="0.0" width="105" height="17.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="17.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-6Z-ARf">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="105" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="25.333333333333332" width="113.66666666666667" height="34.333333333333343"/>
                                                 <menu key="menu" id="QHA-qS-i6m">
                                                     <children>
                                                         <command title="Any" menuElementState="on" id="y4J-za-w3L"/>
@@ -418,20 +421,29 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="7bf-J3-oyx"/>
                         <color key="backgroundColor" red="0.060035121387298766" green="0.2415759841865989" blue="0.41717317248835706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="4tn-ra-rtp" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leadingMargin" constant="8" id="3qH-oe-epf"/>
+                            <constraint firstItem="4tn-ra-rtp" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leadingMargin" id="3qH-oe-epf"/>
                             <constraint firstItem="4tn-ra-rtp" firstAttribute="top" secondItem="uJn-J6-NXn" secondAttribute="bottom" constant="26" id="4jy-hH-qjK"/>
-                            <constraint firstAttribute="trailing" secondItem="uJn-J6-NXn" secondAttribute="trailing" constant="24" id="8Lz-bf-yL9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4tn-ra-rtp" secondAttribute="trailing" constant="8" id="8dW-Fb-N7h"/>
+                            <constraint firstAttribute="trailing" secondItem="uJn-J6-NXn" secondAttribute="trailing" constant="15" id="8Lz-bf-yL9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4tn-ra-rtp" secondAttribute="trailing" id="8dW-Fb-N7h"/>
                             <constraint firstItem="fCZ-ml-qtS" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="3" id="DF9-40-V7N"/>
                             <constraint firstItem="fCZ-ml-qtS" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="3" id="RCM-On-d11"/>
-                            <constraint firstItem="uJn-J6-NXn" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="24" id="fAr-AI-ZDy"/>
+                            <constraint firstItem="uJn-J6-NXn" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="15" id="fAr-AI-ZDy"/>
                             <constraint firstItem="uJn-J6-NXn" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="20" symbolic="YES" id="gda-kR-4Lt"/>
                             <constraint firstAttribute="bottom" secondItem="fCZ-ml-qtS" secondAttribute="bottom" constant="3" id="hCC-yo-MUo"/>
                             <constraint firstAttribute="trailing" secondItem="fCZ-ml-qtS" secondAttribute="trailing" constant="3" id="vRM-Kw-F6h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cardTypeFilter" destination="zk6-6Z-ARf" id="VW9-LY-xbm"/>
+                        <outlet property="resistanceFilter" destination="0aC-K3-cIn" id="ziY-cB-1Ar"/>
+                        <outlet property="retreatCostFilter" destination="6bR-31-NWu" id="xcV-al-fxJ"/>
+                        <outlet property="stageFilter" destination="mAs-as-ha1" id="O0W-Rv-gC0"/>
+                        <outlet property="typeFilter" destination="hNE-qg-MFg" id="ABB-7F-pV0"/>
+                        <outlet property="weaknessFilter" destination="HDq-vM-61R" id="CPs-7E-5Si"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrM-7W-K6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

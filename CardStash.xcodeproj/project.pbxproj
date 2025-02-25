@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		062109FD2D6798180013D97A /* NukeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062109FC2D6798180013D97A /* NukeOptions.swift */; };
 		062109FF2D67AA9F0013D97A /* Eazy Chat.otf in Resources */ = {isa = PBXBuildFile; fileRef = 062109FE2D67AA9F0013D97A /* Eazy Chat.otf */; };
+		06A2E40E2D6CF5EB00F46F96 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */; };
 		06A747342D679140008B92DD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747152D679140008B92DD /* Card.swift */; };
 		06A747352D679140008B92DD /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747162D679140008B92DD /* CardSet.swift */; };
 		06A747362D679140008B92DD /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747172D679140008B92DD /* SearchType.swift */; };
@@ -38,6 +39,7 @@
 		062109FC2D6798180013D97A /* NukeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeOptions.swift; sourceTree = "<group>"; };
 		062109FE2D67AA9F0013D97A /* Eazy Chat.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eazy Chat.otf"; sourceTree = "<group>"; };
 		065429D52D66477D00E7789D /* CardStash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardStash.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		06A747152D679140008B92DD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		06A747162D679140008B92DD /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		06A747172D679140008B92DD /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			children = (
 				06A747262D679140008B92DD /* CardCollectionViewCell.swift */,
 				06A747282D679140008B92DD /* Main.storyboard */,
+				06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */,
 				06A747292D679140008B92DD /* ViewController.swift */,
 			);
 			path = Views;
@@ -301,6 +304,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A2E40E2D6CF5EB00F46F96 /* FilterViewController.swift in Sources */,
 				06A747342D679140008B92DD /* Card.swift in Sources */,
 				06A747352D679140008B92DD /* CardSet.swift in Sources */,
 				06A747362D679140008B92DD /* SearchType.swift in Sources */,
