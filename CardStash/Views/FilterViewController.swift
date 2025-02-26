@@ -18,6 +18,9 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var stageFilter: UIButton!
     @IBOutlet weak var cardTypeFilter: UIButton!
     @IBOutlet weak var retreatCostFilter: UIButton!
+    @IBOutlet weak var holoFilter: UIButton!
+    @IBOutlet weak var rarityFilter: UIButton!
+    @IBOutlet weak var legalityFilter: UIButton!
     
     // MARK: Variables
     
@@ -30,9 +33,14 @@ class FilterViewController: UIViewController {
         configureFilterButton()
         configureWeaknessButton()
         configureResistanceButton()
+        
         configureRetreatCostButton()
         configureStageButton()
         configureCardTypeButton()
+        
+        configureHoloButton()
+        configureRarityButton()
+        configureLegalityButton()
     }
     
     // MARK: Custom functions
@@ -324,6 +332,86 @@ class FilterViewController: UIViewController {
             UIAction(title: "Pokemon", handler: pokemonType),
             UIAction(title: "Energy", handler: energyType),
             UIAction(title: "Trainer", handler: trainerType)
+        ])
+    }
+    
+    func configureHoloButton() {
+        let anyType = { [unowned self] (action: UIAction) in
+            self.viewModel.setHoloFilter(kind: .any)
+        }
+        
+        let holoType = { [unowned self] (action: UIAction) in
+            self.viewModel.setHoloFilter(kind: .holo)
+        }
+        
+        let notHoloType = { [unowned self] (action: UIAction) in
+            self.viewModel.setHoloFilter(kind: .notHolo)
+        }
+        
+        holoFilter.menu = UIMenu(children: [
+            UIAction(title: "Any", handler: anyType),
+            UIAction(title: "Holographic", handler: holoType),
+            UIAction(title: "Not holographic", handler: notHoloType)
+        ])
+    }
+    
+    func configureRarityButton() {
+        let anyType = { [unowned self] (action: UIAction) in
+            self.viewModel.setRarityFilter(kind: .any)
+        }
+        
+        let commonType = { [unowned self] (action: UIAction) in
+            self.viewModel.setRarityFilter(kind: .common)
+        }
+        
+        let uncommonType = { [unowned self] (action: UIAction) in
+            self.viewModel.setRarityFilter(kind: .uncommon)
+        }
+        
+        let rareType = { [unowned self] (action: UIAction) in
+            self.viewModel.setRarityFilter(kind: .rare)
+        }
+        
+        let promoType = { [unowned self] (action: UIAction) in
+            self.viewModel.setRarityFilter(kind: .promo)
+        }
+        
+        let legendType = { [unowned self] (action: UIAction) in
+            self.viewModel.setRarityFilter(kind: .legend)
+        }
+        
+        rarityFilter.menu = UIMenu(children: [
+            UIAction(title: "Any", handler: anyType),
+            UIAction(title: "Common", handler: commonType),
+            UIAction(title: "Uncommon", handler: uncommonType),
+            UIAction(title: "Rare", handler: rareType),
+            UIAction(title: "Promo", handler: promoType),
+            UIAction(title: "LEGEND", handler: legendType)
+        ])
+    }
+    
+    func configureLegalityButton() {
+        let anyType = { [unowned self] (action: UIAction) in
+            self.viewModel.setLegalityFilter(kind: .any)
+        }
+        
+        let standardType = { [unowned self] (action: UIAction) in
+            self.viewModel.setLegalityFilter(kind: .standard)
+        }
+        
+        let expandedType = { [unowned self] (action: UIAction) in
+            self.viewModel.setLegalityFilter(kind: .expanded)
+        }
+        
+        let unlimitedType = { [unowned self] (action: UIAction) in
+            self.viewModel.setLegalityFilter(kind: .unlimited)
+        }
+        
+        legalityFilter.menu = UIMenu(children: [
+            UIAction(title: "Any", handler: anyType),
+            UIAction(title: "Standard", handler: standardType),
+            UIAction(title: "Expanded", handler: expandedType),
+            UIAction(title: "Unlimited", handler: unlimitedType)
         ])
     }
 }

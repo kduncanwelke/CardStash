@@ -107,7 +107,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="pPm-YD-0Q7">
-                                                    <rect key="frame" x="-292" y="0.0" width="734" height="200"/>
+                                                    <rect key="frame" x="2" y="0.0" width="146" height="200"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="pPm-YD-0Q7" secondAttribute="height" multiplier="73:100" id="03r-BZ-C2G"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="dOW-c9-vlm">
                                                     <rect key="frame" x="5" y="208" width="140" height="30"/>
@@ -144,6 +147,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="dOW-c9-vlm" secondAttribute="bottom" constant="2" id="AZi-FQ-Ac9"/>
                                                 <constraint firstItem="dOW-c9-vlm" firstAttribute="top" secondItem="pPm-YD-0Q7" secondAttribute="bottom" constant="8" id="Efd-t3-NLy"/>
+                                                <constraint firstAttribute="trailing" secondItem="pPm-YD-0Q7" secondAttribute="trailing" constant="2" id="QEq-mn-JQV"/>
+                                                <constraint firstItem="pPm-YD-0Q7" firstAttribute="leading" secondItem="O0m-ws-4sx" secondAttribute="leading" constant="2" id="VVk-wf-1gO"/>
                                                 <constraint firstItem="dOW-c9-vlm" firstAttribute="leading" secondItem="O0m-ws-4sx" secondAttribute="leading" constant="5" id="ZxI-8W-IeY"/>
                                                 <constraint firstAttribute="trailing" secondItem="dOW-c9-vlm" secondAttribute="trailing" constant="5" id="gHe-ux-bl4"/>
                                                 <constraint firstItem="pPm-YD-0Q7" firstAttribute="top" secondItem="O0m-ws-4sx" secondAttribute="top" id="vjD-7u-84Q"/>
@@ -226,196 +231,285 @@
                                     <constraint firstItem="Bt1-gQ-Ehd" firstAttribute="top" secondItem="fCZ-ml-qtS" secondAttribute="top" id="rel-zI-VUE"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-J6-NXn">
-                                <rect key="frame" x="15" y="19.999999999999996" width="363" height="59.666666666666657"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lYX-mT-VEZ">
+                                <rect key="frame" x="15" y="20" width="363" height="219"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ukO-0H-UWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.666666666666664"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-J6-NXn">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="59.666666666666664"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-ZH-LLz">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNE-qg-MFg">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
-                                                <menu key="menu" id="0pZ-Fc-Ofw">
-                                                    <children>
-                                                        <command title="Any" menuElementState="on" id="qeJ-ui-eEQ"/>
-                                                        <command title="Colorless" id="NcY-Rl-HFn"/>
-                                                        <command title="Fire" id="1Ae-u9-ADC"/>
-                                                        <command title="Lightning" id="7rB-1a-bJE"/>
-                                                        <command title="Grass" id="dge-vQ-nfE"/>
-                                                        <command title="Water" id="NRx-6o-7uF"/>
-                                                        <command title="Psychic" id="FrZ-sR-BTf"/>
-                                                        <command title="Darkness" id="ZF6-aQ-qGd"/>
-                                                        <command title="Fairy" id="AXz-1t-0ST"/>
-                                                        <command title="Dragon" id="KtB-36-z77"/>
-                                                        <command title="Metal" id="Ied-lR-xeT"/>
-                                                        <command title="Fighting" id="s0L-jr-GwS"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                                </buttonConfiguration>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ukO-0H-UWK">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-ZH-LLz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hNE-qg-MFg">
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="0pZ-Fc-Ofw">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="qeJ-ui-eEQ"/>
+                                                                <command title="Colorless" id="NcY-Rl-HFn"/>
+                                                                <command title="Fire" id="1Ae-u9-ADC"/>
+                                                                <command title="Lightning" id="7rB-1a-bJE"/>
+                                                                <command title="Grass" id="dge-vQ-nfE"/>
+                                                                <command title="Water" id="NRx-6o-7uF"/>
+                                                                <command title="Psychic" id="FrZ-sR-BTf"/>
+                                                                <command title="Darkness" id="ZF6-aQ-qGd"/>
+                                                                <command title="Fairy" id="AXz-1t-0ST"/>
+                                                                <command title="Dragon" id="KtB-36-z77"/>
+                                                                <command title="Metal" id="Ied-lR-xeT"/>
+                                                                <command title="Fighting" id="s0L-jr-GwS"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xgD-Ux-diy">
+                                                <rect key="frame" x="124.33333333333334" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weakness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyz-7W-eIk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDq-vM-61R">
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="Gox-c2-NaS">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="olC-D5-tgq"/>
+                                                                <command title="Colorless" id="FxK-z1-CiB"/>
+                                                                <command title="Fire" id="lSB-bO-Esl"/>
+                                                                <command title="Lightning" id="sOk-66-dI5"/>
+                                                                <command title="Grass" id="cK8-L8-G83"/>
+                                                                <command title="Water" id="50c-xG-Y8U"/>
+                                                                <command title="Psychic" id="1VM-Gp-auG"/>
+                                                                <command title="Darkness" id="nAI-gK-qaE"/>
+                                                                <command title="Fairy" id="vfy-8F-rVM"/>
+                                                                <command title="Dragon" id="6jq-bV-cdS"/>
+                                                                <command title="Metal" id="v3b-7t-Qul"/>
+                                                                <command title="Fighting" id="C42-Ff-uEk"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B23-3x-g77">
+                                                <rect key="frame" x="248.66666666666671" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resistance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Z-ez-lbZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-K3-cIn">
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="SyX-Y2-9Dt">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="8Ie-qo-u8n"/>
+                                                                <command title="Colorless" id="lgr-UK-OZF"/>
+                                                                <command title="Fire" id="H5l-jF-VGm"/>
+                                                                <command title="Lightning" id="ovQ-ze-uNi"/>
+                                                                <command title="Grass" id="3QY-RE-syT"/>
+                                                                <command title="Water" id="rg5-ta-qEf"/>
+                                                                <command title="Psychic" id="FLk-5r-soP"/>
+                                                                <command title="Darkness" id="Oyc-Ie-baY"/>
+                                                                <command title="Fairy" id="TaU-Jt-TMX"/>
+                                                                <command title="Dragon" id="nyu-Sq-G0n"/>
+                                                                <command title="Metal" id="e9G-VY-Pne"/>
+                                                                <command title="Fighting" id="c1l-wI-xGe"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xgD-Ux-diy">
-                                        <rect key="frame" x="124.33333333333334" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-ra-rtp">
+                                        <rect key="frame" x="0.0" y="79.666666666666671" width="363" height="59.666666666666671"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weakness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyz-7W-eIk">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HDq-vM-61R">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
-                                                <menu key="menu" id="Gox-c2-NaS">
-                                                    <children>
-                                                        <command title="Any" menuElementState="on" id="olC-D5-tgq"/>
-                                                        <command title="Colorless" id="FxK-z1-CiB"/>
-                                                        <command title="Fire" id="lSB-bO-Esl"/>
-                                                        <command title="Lightning" id="sOk-66-dI5"/>
-                                                        <command title="Grass" id="cK8-L8-G83"/>
-                                                        <command title="Water" id="50c-xG-Y8U"/>
-                                                        <command title="Psychic" id="1VM-Gp-auG"/>
-                                                        <command title="Darkness" id="nAI-gK-qaE"/>
-                                                        <command title="Fairy" id="vfy-8F-rVM"/>
-                                                        <command title="Dragon" id="6jq-bV-cdS"/>
-                                                        <command title="Metal" id="v3b-7t-Qul"/>
-                                                        <command title="Fighting" id="C42-Ff-uEk"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                </buttonConfiguration>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-pL-HRn">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retreat Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mov-YF-Mjl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bR-31-NWu">
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="gE5-5o-9RW">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="xpY-uO-cBH"/>
+                                                                <command title="0" id="2uX-B9-fkg"/>
+                                                                <command title="1" id="nUa-hl-msi"/>
+                                                                <command title="2" id="UPV-3k-siC"/>
+                                                                <command title="3" id="R4s-Fk-c00"/>
+                                                                <command title="4" id="p8S-uF-cuF"/>
+                                                                <command title="5" id="0k9-a4-HxD"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-8Q-MXM">
+                                                <rect key="frame" x="124.33333333333334" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhE-Fk-kr3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAs-as-ha1">
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="RC5-PQ-AZB">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="Vzm-oy-fG6"/>
+                                                                <command title="Baby" id="RM4-h1-cht"/>
+                                                                <command title="Basic" id="b99-qS-qbL"/>
+                                                                <command title="Stage 1" id="SZf-Pu-gbd"/>
+                                                                <command title="Stage 2" id="s9U-vj-Na7"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2mv-C6-ocj">
+                                                <rect key="frame" x="248.66666666666671" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MN-N0-dUh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-6Z-ARf">
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="QHA-qS-i6m">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="y4J-za-w3L"/>
+                                                                <command title="Energy" id="OaX-il-IzD"/>
+                                                                <command title="Pokemon" id="cbJ-0x-NBk"/>
+                                                                <command title="Trainer" id="r4Q-LY-HUz"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="B23-3x-g77">
-                                        <rect key="frame" x="248.66666666666671" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uks-w7-PUb">
+                                        <rect key="frame" x="0.0" y="159.33333333333334" width="363" height="59.666666666666657"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resistance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6Z-ez-lbZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0aC-K3-cIn">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
-                                                <menu key="menu" id="SyX-Y2-9Dt">
-                                                    <children>
-                                                        <command title="Any" menuElementState="on" id="8Ie-qo-u8n"/>
-                                                        <command title="Colorless" id="lgr-UK-OZF"/>
-                                                        <command title="Fire" id="H5l-jF-VGm"/>
-                                                        <command title="Lightning" id="ovQ-ze-uNi"/>
-                                                        <command title="Grass" id="3QY-RE-syT"/>
-                                                        <command title="Water" id="rg5-ta-qEf"/>
-                                                        <command title="Psychic" id="FLk-5r-soP"/>
-                                                        <command title="Darkness" id="Oyc-Ie-baY"/>
-                                                        <command title="Fairy" id="TaU-Jt-TMX"/>
-                                                        <command title="Dragon" id="nyu-Sq-G0n"/>
-                                                        <command title="Metal" id="e9G-VY-Pne"/>
-                                                        <command title="Fighting" id="c1l-wI-xGe"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-ra-rtp">
-                                <rect key="frame" x="16" y="105.66666666666667" width="361" height="59.666666666666671"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-pL-HRn">
-                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="59.666666666666664"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retreat Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mov-YF-Mjl">
-                                                <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="17.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bR-31-NWu">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="113.66666666666667" height="34.333333333333343"/>
-                                                <menu key="menu" id="gE5-5o-9RW">
-                                                    <children>
-                                                        <command title="Any" menuElementState="on" id="xpY-uO-cBH"/>
-                                                        <command title="0" id="2uX-B9-fkg"/>
-                                                        <command title="1" id="nUa-hl-msi"/>
-                                                        <command title="2" id="UPV-3k-siC"/>
-                                                        <command title="3" id="R4s-Fk-c00"/>
-                                                        <command title="4" id="p8S-uF-cuF"/>
-                                                        <command title="5" id="0k9-a4-HxD"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-8Q-MXM">
-                                        <rect key="frame" x="123.66666666666666" y="0.0" width="113.66666666666666" height="59.666666666666664"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhE-Fk-kr3">
-                                                <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="17.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAs-as-ha1">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="113.66666666666667" height="34.333333333333343"/>
-                                                <menu key="menu" id="RC5-PQ-AZB">
-                                                    <children>
-                                                        <command title="Any" menuElementState="on" id="Vzm-oy-fG6"/>
-                                                        <command title="Baby" id="RM4-h1-cht"/>
-                                                        <command title="Basic" id="b99-qS-qbL"/>
-                                                        <command title="Stage 1" id="SZf-Pu-gbd"/>
-                                                        <command title="Stage 2" id="s9U-vj-Na7"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                </buttonConfiguration>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2mv-C6-ocj">
-                                        <rect key="frame" x="247.33333333333329" y="0.0" width="113.66666666666666" height="59.666666666666664"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4MN-N0-dUh">
-                                                <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="17.333333333333332"/>
-                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-6Z-ARf">
-                                                <rect key="frame" x="0.0" y="25.333333333333332" width="113.66666666666667" height="34.333333333333343"/>
-                                                <menu key="menu" id="QHA-qS-i6m">
-                                                    <children>
-                                                        <command title="Any" menuElementState="on" id="y4J-za-w3L"/>
-                                                        <command title="Energy" id="OaX-il-IzD"/>
-                                                        <command title="Pokemon" id="cbJ-0x-NBk"/>
-                                                        <command title="Trainer" id="r4Q-LY-HUz"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Type">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                </buttonConfiguration>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j4u-dW-eHX">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcX-9J-Xm8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m2W-ro-uGP">
+                                                        <rect key="frame" x="0.0" y="25.333333333333318" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="fUk-gr-FQ6">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="d0g-vq-IFT"/>
+                                                                <command title="Holographic" id="ojH-k4-w9u"/>
+                                                                <command title="Not Holographic" id="Eto-fe-bg6"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9qi-SF-1cA">
+                                                <rect key="frame" x="124.33333333333334" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rarity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYf-sD-oy1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="imB-Ne-CJd">
+                                                        <rect key="frame" x="0.0" y="25.333333333333318" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="QhC-ik-7aP">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="qRQ-7T-bmq"/>
+                                                                <command title="Common" id="9aW-Zr-3Js"/>
+                                                                <command title="Uncommon" id="NqL-0F-Q7h"/>
+                                                                <command title="Rare" id="zAG-aM-8pc"/>
+                                                                <command title="Promo" id="bok-3u-pHL"/>
+                                                                <command title="LEGEND" id="36M-0c-sMK"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="81k-3G-4rF">
+                                                <rect key="frame" x="248.66666666666671" y="0.0" width="114.33333333333334" height="59.666666666666664"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Legality" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zA-HY-zvP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="17.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g50-Tg-isR">
+                                                        <rect key="frame" x="0.0" y="25.333333333333318" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <menu key="menu" id="yk3-d4-eZx">
+                                                            <children>
+                                                                <command title="Any" menuElementState="on" id="HKq-Sp-D4X"/>
+                                                                <command title="Standard Legal" id="sYb-vH-lsB"/>
+                                                                <command title="Expanded Legal" id="hmV-CX-fT3"/>
+                                                                <command title="Unlimited Legal" id="ftS-iU-QKw"/>
+                                                            </children>
+                                                        </menu>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" title="Type">
+                                                            <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -424,20 +518,20 @@
                         <viewLayoutGuide key="safeArea" id="7bf-J3-oyx"/>
                         <color key="backgroundColor" red="0.060035121387298766" green="0.2415759841865989" blue="0.41717317248835706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="4tn-ra-rtp" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leadingMargin" id="3qH-oe-epf"/>
-                            <constraint firstItem="4tn-ra-rtp" firstAttribute="top" secondItem="uJn-J6-NXn" secondAttribute="bottom" constant="26" id="4jy-hH-qjK"/>
-                            <constraint firstAttribute="trailing" secondItem="uJn-J6-NXn" secondAttribute="trailing" constant="15" id="8Lz-bf-yL9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="4tn-ra-rtp" secondAttribute="trailing" id="8dW-Fb-N7h"/>
+                            <constraint firstItem="lYX-mT-VEZ" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="20" id="19c-5z-J6S"/>
                             <constraint firstItem="fCZ-ml-qtS" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="3" id="DF9-40-V7N"/>
+                            <constraint firstItem="7bf-J3-oyx" firstAttribute="trailing" secondItem="lYX-mT-VEZ" secondAttribute="trailing" constant="15" id="FgH-wf-0AF"/>
+                            <constraint firstItem="lYX-mT-VEZ" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="15" id="Hjb-Ez-uPO"/>
                             <constraint firstItem="fCZ-ml-qtS" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="3" id="RCM-On-d11"/>
-                            <constraint firstItem="uJn-J6-NXn" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="15" id="fAr-AI-ZDy"/>
-                            <constraint firstItem="uJn-J6-NXn" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="20" symbolic="YES" id="gda-kR-4Lt"/>
                             <constraint firstAttribute="bottom" secondItem="fCZ-ml-qtS" secondAttribute="bottom" constant="3" id="hCC-yo-MUo"/>
                             <constraint firstAttribute="trailing" secondItem="fCZ-ml-qtS" secondAttribute="trailing" constant="3" id="vRM-Kw-F6h"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardTypeFilter" destination="zk6-6Z-ARf" id="VW9-LY-xbm"/>
+                        <outlet property="holoFilter" destination="m2W-ro-uGP" id="Ui4-sp-7y8"/>
+                        <outlet property="legalityFilter" destination="g50-Tg-isR" id="qkN-oX-WgN"/>
+                        <outlet property="rarityFilter" destination="imB-Ne-CJd" id="tTP-Xe-3di"/>
                         <outlet property="resistanceFilter" destination="0aC-K3-cIn" id="ziY-cB-1Ar"/>
                         <outlet property="retreatCostFilter" destination="6bR-31-NWu" id="xcV-al-fxJ"/>
                         <outlet property="stageFilter" destination="mAs-as-ha1" id="O0W-Rv-gC0"/>
@@ -448,6 +542,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrM-7W-K6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="765.64885496183206" y="-101.40845070422536"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="a3e-cl-xm2">
+            <objects>
+                <viewController id="LpI-ni-FQF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hCO-81-ipF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YjK-ss-Ud4">
+                                <rect key="frame" x="15" y="74" width="363" height="530.66666666666663"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zp9-Fq-F1F">
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="18.333333333333332"/>
+                                        <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EGL-uh-9ZB">
+                                        <rect key="frame" x="0.0" y="33.333333333333343" width="363" height="497.33333333333326"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="EGL-uh-9ZB" secondAttribute="height" multiplier="73:100" id="wET-b0-0hR"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TIW-0G-scS"/>
+                        <color key="backgroundColor" red="0.1334633892" green="0.0285047836" blue="0.26694681190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YjK-ss-Ud4" secondAttribute="trailing" constant="15" id="Fae-tu-8Sw"/>
+                            <constraint firstItem="YjK-ss-Ud4" firstAttribute="top" secondItem="TIW-0G-scS" secondAttribute="top" constant="15" id="osd-pL-D5p"/>
+                            <constraint firstItem="YjK-ss-Ud4" firstAttribute="leading" secondItem="hCO-81-ipF" secondAttribute="leading" constant="15" id="qfH-ZX-DTN"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIa-do-BaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767.17557251908397" y="364.78873239436621"/>
         </scene>
     </scenes>
     <resources>

@@ -301,9 +301,9 @@ public class ViewModel {
         case .basic:
             SearchParameters.stage = "basic"
         case .stage1:
-            SearchParameters.stage = "stage1"
+            SearchParameters.stage = "\"Stage 1\""
         case.stage2:
-            SearchParameters.stage = "stage2"
+            SearchParameters.stage = "\"Stage 2\""
         }
     }
     
@@ -317,6 +317,47 @@ public class ViewModel {
             SearchParameters.superType = "energy"
         case .trainer:
             SearchParameters.superType = "trainer"
+        }
+    }
+    
+    func setHoloFilter(kind: HoloType) {
+        switch kind {
+        case .any:
+            SearchParameters.holo = ""
+        case .holo:
+            SearchParameters.holo = "holo"
+        case .notHolo:
+            SearchParameters.holo = "not"
+        }
+    }
+    
+    func setRarityFilter(kind: Rarity) {
+        switch kind {
+        case .any:
+            SearchParameters.rarity = ""
+        case .common:
+            SearchParameters.rarity = "common"
+        case .uncommon:
+            SearchParameters.rarity = "uncommon"
+        case .rare:
+            SearchParameters.rarity = "rare"
+        case .promo:
+            SearchParameters.rarity = "promo"
+        case .legend:
+            SearchParameters.rarity = "LEGEND"
+        }
+    }
+    
+    func setLegalityFilter(kind: Legality) {
+        switch kind {
+        case .any:
+            SearchParameters.legality = ""
+        case .standard:
+            SearchParameters.legality = ".standard:legal"
+        case .expanded:
+            SearchParameters.legality = ".expanded:legal"
+        case .unlimited:
+            SearchParameters.legality = ".unlimited:legal"
         }
     }
     
@@ -347,8 +388,19 @@ public class ViewModel {
             compiled += " convertedRetreatCost:\(SearchParameters.retreatCost)"
         }
         
-        // legality
-        // holo
+        if SearchParameters.legality != "" {
+            compiled += " legalities\(SearchParameters.legality)"
+        }
+        
+        if SearchParameters.holo != "" {
+            if SearchParameters.holo == "holo" {
+                // holographic
+                compiled += " rarity:\(SearchParameters.holo)"
+            } else {
+                // non holographic
+                compiled += " -rarity:\(SearchParameters.holo)"
+            }
+        }
         
         if SearchParameters.superType != "" {
             compiled += " supertype:\(SearchParameters.superType)"

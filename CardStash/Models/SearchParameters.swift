@@ -14,13 +14,13 @@ struct SearchParameters {
     static var weakness: String = "" // added
     static var resistance: String = "" // added
     static var retreatCost: Int = -1 // added
-    static var cardSet: String = "" // need search?
-    static var legality: String = ""
+    static var cardSet: String = ""
+    static var legality: String = "" // added
     static var stage: String = "" // added
-    static var holo: String = ""
-    static var rarity: String = ""
-    static var ability: String = "" // need search
-    static var move: String = "" // need search
+    static var holo: String = "" // added
+    static var rarity: String = "" // added
+    static var ability: String = ""
+    static var move: String = ""
     static var superType: String = "" // added
     
     static var sorting: String = ""
@@ -71,4 +71,26 @@ enum CardType {
     case pokemon
     case energy
     case trainer
+}
+
+enum HoloType {
+    case any
+    case holo
+    case notHolo
+}
+
+enum Rarity {
+    case any
+    case common
+    case uncommon
+    case rare
+    case promo
+    case legend
+}
+
+enum Legality {
+    case any
+    case standard
+    case expanded
+    case unlimited
 }
