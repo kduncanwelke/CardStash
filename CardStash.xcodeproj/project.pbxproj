@@ -31,6 +31,7 @@
 		06A747462D679140008B92DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A747282D679140008B92DD /* Main.storyboard */; };
 		06A747472D679140008B92DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06A7472C2D679140008B92DD /* Assets.xcassets */; };
 		06A747492D679140008B92DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A747302D679140008B92DD /* LaunchScreen.storyboard */; };
+		06DEBA4A2D723AA70067A687 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DEBA492D723AA70067A687 /* CardDetailViewController.swift */; };
 		06EEA3A02D67B24C00680230 /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EEA39F2D67B24C00680230 /* SearchParameters.swift */; };
 		B5487153095FE1401846D0DD /* Pods_CardStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FE4246575CD8969E874A67 /* Pods_CardStash.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		06A7472F2D679140008B92DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06A747312D679140008B92DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		06A747332D679140008B92DD /* CardStash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardStash.xcdatamodel; sourceTree = "<group>"; };
+		06DEBA492D723AA70067A687 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		06EEA39F2D67B24C00680230 /* SearchParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
 		72FE4246575CD8969E874A67 /* Pods_CardStash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardStash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F9AF57931DBABA336B6A3A /* Pods-CardStash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardStash.release.xcconfig"; path = "Target Support Files/Pods-CardStash/Pods-CardStash.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				06A747282D679140008B92DD /* Main.storyboard */,
 				06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */,
 				06A747292D679140008B92DD /* ViewController.swift */,
+				06DEBA492D723AA70067A687 /* CardDetailViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				06A7473C2D679140008B92DD /* JSONDecoder.swift in Sources */,
 				06A7473D2D679140008B92DD /* Key.swift in Sources */,
 				062109FD2D6798180013D97A /* NukeOptions.swift in Sources */,
+				06DEBA4A2D723AA70067A687 /* CardDetailViewController.swift in Sources */,
 				06A7473E2D679140008B92DD /* Networker.swift in Sources */,
 				06A7473F2D679140008B92DD /* NetworkMonitor.swift in Sources */,
 				06A747402D679140008B92DD /* ViewModel.swift in Sources */,

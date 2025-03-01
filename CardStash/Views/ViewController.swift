@@ -17,7 +17,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var filtersContainer: UIView!
     
-    
     // MARK: Variables
     
     private let viewModel = ViewModel()
@@ -117,12 +116,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func reloadForSorting() {
-        print(SearchParameters.isNewSearch)
         if viewModel.isNewSearch() {
             getCards()
-            print("api call")
         } else {
-            print("reload")
             activityIndicator.startAnimating()
             collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
             collectionView.reloadData()
@@ -188,6 +184,8 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.setSelected(index: indexPath.row)
+        performSegue(withIdentifier: "viewCard", sender: Any?.self)
     }
 }
 

@@ -16,4 +16,6 @@ struct CachedData {
     static var rarities: [String] = []
     
     static var sorted: [Card] = []
+    
+    static var selected: Int = 0
 }

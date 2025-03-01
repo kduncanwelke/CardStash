@@ -37,67 +37,106 @@ public class ViewModel {
     
     func getInitialCards() {
         SearchParameters.cardSet = "base"
-        // TODO: Reset card set
         createSearchTerms()
+        SearchParameters.cardSet = ""
     }
     
-    func getCardCount() -> Int {
+    func getCardSource() -> [Card] {
         if SearchParameters.isNewSearch {
-            return CachedData.cards.count
+            return CachedData.cards
         } else {
-            return CachedData.sorted.count
+            return CachedData.sorted
         }
     }
     
+    func getCardCount() -> Int {
+        let cards = getCardSource()
+        return cards.count
+    }
+    
     func getCardName(index: Int) -> String {
-        if SearchParameters.isNewSearch {
-            return CachedData.cards[index].name ?? "Unknown"
+        let cards = getCardSource()
+        return cards[index].name ?? "Unknown"
+    }
+    
+    func getCardNumber(index: Int) -> String {
+        let cards = getCardSource()
+        if let number = cards[index].nationalPokedexNumbers?.first {
+            return "#\(number)"
         } else {
-            return CachedData.sorted[index].name ?? "Unknown"
+            return "Unknown"
         }
     }
     
     func getCardHP(index: Int) -> String {
-        if SearchParameters.isNewSearch {
-            if let hitPoints = CachedData.cards[index].hp {
-                return "\(hitPoints)HP"
-            } else {
-                // trainers and energy do not have HP so show nothing
-                return " "
-            }
+        let cards = getCardSource()
+        
+        if let hitPoints = cards[index].hp {
+            return "\(hitPoints)HP"
         } else {
-            if let hitPoints = CachedData.sorted[index].hp {
-                return "\(hitPoints)HP"
-            } else {
-                // trainers and energy do not have HP so show nothing
-                return " "
-            }
+            // trainers and energy do not have HP so show nothing
+            return " "
         }
     }
     
     func getCardSet(index: Int) -> String {
-        if SearchParameters.isNewSearch {
-            return CachedData.cards[index].set?.name ?? "Unknown"
+        let cards = getCardSource()
+        return cards[index].set?.name ?? "Unknown"
+    }
+    
+    func getCardType(index: Int) -> String {
+        let cards = getCardSource()
+        return cards[index].types?.first ?? "Unknown"
+    }
+    
+    func getCardStage(index: Int) -> String {
+        let cards = getCardSource()
+        return cards[index].subtypes?.first ?? "Unknown"
+    }
+    
+    func getCardWeakness(index: Int) -> String {
+        let cards = getCardSource()
+        return cards[index].weaknesses?.first?.type ?? "None"
+    }
+    
+    func getCardResistance(index: Int) -> String {
+        let cards = getCardSource()
+        return cards[index].resistances?.first?.type ?? "None"
+    }
+    
+    func getCardRetreatCost(index: Int) -> String {
+        let cards = getCardSource()
+        if let retreat = cards[index].convertedRetreatCost {
+            return "\(retreat)"
         } else {
-            return CachedData.sorted[index].set?.name ?? "Unknown"
+            return "None"
         }
     }
     
+    func getCardFlavorText(index: Int) -> String {
+        let cards = getCardSource()
+        return cards[index].flavorText ?? "Unknown"
+    }
+    
     func getImageURL(index: Int) -> URL? {
-        if SearchParameters.isNewSearch {
-            if let url = CachedData.cards[index].images?.large {
-                return URL(string: url)
-            } else {
-                return nil
-            }
+        let cards = getCardSource()
+       
+        if let url = cards[index].images?.large {
+            return URL(string: url)
         } else {
-            if let url = CachedData.sorted[index].images?.large {
-                return URL(string: url)
-            } else {
-                return nil
-            }
+            return nil
         }
     }
+    
+    func setSelected(index: Int) {
+        CachedData.selected = index
+    }
+    
+    func getSelected() -> Int {
+        return CachedData.selected
+    }
+    
+    // MARK: Data manipulation
     
     func setSearch(search: String, completion: @escaping () -> Void) {
         if let pokedexNumber = Int(search) {
