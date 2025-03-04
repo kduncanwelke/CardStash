@@ -1,4 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23605" systemVersion="24D70" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CardAbility" representedClassName="CardAbility" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CardAttack" representedClassName="CardAttack" syncable="YES" codeGenerationType="class">
+        <attribute name="convertedEnergyCost" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cost" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="damage" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CardImage" representedClassName="CardImage" syncable="YES" codeGenerationType="class">
+        <attribute name="large" optional="YES" attributeType="String"/>
+        <attribute name="small" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CardLegality" representedClassName="CardLegality" syncable="YES" codeGenerationType="class">
+        <attribute name="expanded" optional="YES" attributeType="String"/>
+        <attribute name="standard" optional="YES" attributeType="String"/>
+        <attribute name="unlimited" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CardResistance" representedClassName="CardResistance" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CardWeakness" representedClassName="CardWeakness" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SavedCard" representedClassName="SavedCard" syncable="YES" codeGenerationType="class">
+        <attribute name="convertedRetreatCost" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="evolvesFrom" optional="YES" attributeType="String"/>
+        <attribute name="evolvesTo" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="flavorText" optional="YES" attributeType="String"/>
+        <attribute name="hp" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nationalPokedexNumbers" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="number" optional="YES" attributeType="String"/>
+        <attribute name="quantityOwned" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rarity" optional="YES" attributeType="String"/>
+        <attribute name="retreatCost" optional="YES" attributeType="String"/>
+        <attribute name="rules" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="set" optional="YES" attributeType="String"/>
+        <attribute name="subtypes" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[String]"/>
+        <attribute name="supertype" optional="YES" attributeType="String"/>
+        <attribute name="types" optional="YES" attributeType="String"/>
+        <relationship name="abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardAbility"/>
+        <relationship name="attacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardAttack"/>
+        <relationship name="images" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardImage"/>
+        <relationship name="legalities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CardLegality"/>
+        <relationship name="resistance" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardResistance"/>
+        <relationship name="weakness" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardWeakness"/>
+    </entity>
 </model>
