@@ -90,6 +90,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NYg-U9-gKH">
                                 <rect key="frame" x="2.6666666666666572" y="151" width="388" height="626"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ONM-gm-VBH">
                                     <size key="itemSize" width="150" height="220"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -152,12 +153,14 @@
                                                 <constraint firstItem="pPm-YD-0Q7" firstAttribute="top" secondItem="O0m-ws-4sx" secondAttribute="top" id="vjD-7u-84Q"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <gestureRecognizers/>
                                         <size key="customSize" width="150" height="240"/>
                                         <connections>
                                             <outlet property="HP" destination="ljJ-VJ-2mj" id="cxQ-TC-UYE"/>
                                             <outlet property="cardImage" destination="pPm-YD-0Q7" id="SVk-7e-ht7"/>
                                             <outlet property="name" destination="iGb-uk-E3S" id="764-q2-leZ"/>
                                             <outlet property="set" destination="dd0-d3-tJH" id="ZoY-GY-Hn1"/>
+                                            <outletCollection property="gestureRecognizers" destination="yhu-Hf-YmO" appends="YES" id="qw8-M9-EOv"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -227,6 +230,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.13346338923460152" green="0.028504783597039285" blue="0.26694681186868685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nkz-X0-s1I" secondAttribute="trailing" id="0UI-tX-oia"/>
                             <constraint firstItem="p2q-3s-Q35" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="55s-Wl-LIx"/>
@@ -259,6 +263,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="yhu-Hf-YmO">
+                    <connections>
+                        <action selector="cardDoubleTapped:" destination="BYZ-38-t0r" id="i3d-3X-1Md"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="3.5211267605633805"/>
         </scene>

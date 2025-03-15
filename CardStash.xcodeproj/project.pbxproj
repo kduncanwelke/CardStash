@@ -26,13 +26,15 @@
 		06A747412D679140008B92DD /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747262D679140008B92DD /* CardCollectionViewCell.swift */; };
 		06A747422D679140008B92DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747292D679140008B92DD /* ViewController.swift */; };
 		06A747432D679140008B92DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A7472B2D679140008B92DD /* AppDelegate.swift */; };
-		06A747442D679140008B92DD /* CardStash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06A7472D2D679140008B92DD /* CardStash.xcdatamodeld */; };
+		06A747442D679140008B92DD /* SavedCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06A7472D2D679140008B92DD /* SavedCard.xcdatamodeld */; };
 		06A747452D679140008B92DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747312D679140008B92DD /* SceneDelegate.swift */; };
 		06A747462D679140008B92DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A747282D679140008B92DD /* Main.storyboard */; };
 		06A747472D679140008B92DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06A7472C2D679140008B92DD /* Assets.xcassets */; };
 		06A747492D679140008B92DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06A747302D679140008B92DD /* LaunchScreen.storyboard */; };
 		06DEBA4A2D723AA70067A687 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06DEBA492D723AA70067A687 /* CardDetailViewController.swift */; };
 		06EEA3A02D67B24C00680230 /* SearchParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EEA39F2D67B24C00680230 /* SearchParameters.swift */; };
+		06F9A9332D7F58E4005CE41B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9A9322D7F58E4005CE41B /* CoreDataManager.swift */; };
+		06F9A9352D7F5BAD005CE41B /* ViewModel+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F9A9342D7F5BA2005CE41B /* ViewModel+CoreData.swift */; };
 		B5487153095FE1401846D0DD /* Pods_CardStash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72FE4246575CD8969E874A67 /* Pods_CardStash.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,9 +64,11 @@
 		06A7472E2D679140008B92DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06A7472F2D679140008B92DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06A747312D679140008B92DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		06A747332D679140008B92DD /* CardStash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CardStash.xcdatamodel; sourceTree = "<group>"; };
+		06A747332D679140008B92DD /* SavedCard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedCard.xcdatamodel; sourceTree = "<group>"; };
 		06DEBA492D723AA70067A687 /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		06EEA39F2D67B24C00680230 /* SearchParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchParameters.swift; sourceTree = "<group>"; };
+		06F9A9322D7F58E4005CE41B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		06F9A9342D7F5BA2005CE41B /* ViewModel+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel+CoreData.swift"; sourceTree = "<group>"; };
 		72FE4246575CD8969E874A67 /* Pods_CardStash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CardStash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F9AF57931DBABA336B6A3A /* Pods-CardStash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardStash.release.xcconfig"; path = "Target Support Files/Pods-CardStash/Pods-CardStash.release.xcconfig"; sourceTree = "<group>"; };
 		EDFB41B648AF318945908CD9 /* Pods-CardStash.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CardStash.debug.xcconfig"; path = "Target Support Files/Pods-CardStash/Pods-CardStash.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				06A747242D679140008B92DD /* ViewModel.swift */,
+				06F9A9342D7F5BA2005CE41B /* ViewModel+CoreData.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -165,7 +170,8 @@
 				06A7472B2D679140008B92DD /* AppDelegate.swift */,
 				06A7472C2D679140008B92DD /* Assets.xcassets */,
 				062109FE2D67AA9F0013D97A /* Eazy Chat.otf */,
-				06A7472D2D679140008B92DD /* CardStash.xcdatamodeld */,
+				06A7472D2D679140008B92DD /* SavedCard.xcdatamodeld */,
+				06F9A9322D7F58E4005CE41B /* CoreDataManager.swift */,
 				06A7472E2D679140008B92DD /* Info.plist */,
 				06A747302D679140008B92DD /* LaunchScreen.storyboard */,
 				062109FC2D6798180013D97A /* NukeOptions.swift */,
@@ -315,10 +321,12 @@
 				06A747372D679140008B92DD /* Types.swift in Sources */,
 				06A747382D679140008B92DD /* CachedData.swift in Sources */,
 				06A747392D679140008B92DD /* DataManager.swift in Sources */,
+				06F9A9332D7F58E4005CE41B /* CoreDataManager.swift in Sources */,
 				06A7473A2D679140008B92DD /* Endpoint.swift in Sources */,
 				06A7473B2D679140008B92DD /* Errors.swift in Sources */,
 				06A7473C2D679140008B92DD /* JSONDecoder.swift in Sources */,
 				06A7473D2D679140008B92DD /* Key.swift in Sources */,
+				06F9A9352D7F5BAD005CE41B /* ViewModel+CoreData.swift in Sources */,
 				062109FD2D6798180013D97A /* NukeOptions.swift in Sources */,
 				06DEBA4A2D723AA70067A687 /* CardDetailViewController.swift in Sources */,
 				06A7473E2D679140008B92DD /* Networker.swift in Sources */,
@@ -327,7 +335,7 @@
 				06A747412D679140008B92DD /* CardCollectionViewCell.swift in Sources */,
 				06A747422D679140008B92DD /* ViewController.swift in Sources */,
 				06A747432D679140008B92DD /* AppDelegate.swift in Sources */,
-				06A747442D679140008B92DD /* CardStash.xcdatamodeld in Sources */,
+				06A747442D679140008B92DD /* SavedCard.xcdatamodeld in Sources */,
 				06A747452D679140008B92DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,13 +569,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		06A7472D2D679140008B92DD /* CardStash.xcdatamodeld */ = {
+		06A7472D2D679140008B92DD /* SavedCard.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				06A747332D679140008B92DD /* CardStash.xcdatamodel */,
+				06A747332D679140008B92DD /* SavedCard.xcdatamodel */,
 			);
-			currentVersion = 06A747332D679140008B92DD /* CardStash.xcdatamodel */;
-			path = CardStash.xcdatamodeld;
+			currentVersion = 06A747332D679140008B92DD /* SavedCard.xcdatamodel */;
+			path = SavedCard.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

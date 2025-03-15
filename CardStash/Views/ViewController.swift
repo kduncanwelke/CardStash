@@ -33,6 +33,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         configureSortingPopUpButton()
         
+        viewModel.loadCards()
+        
         viewModel.getInitialCards()
         getCards()
     }
@@ -158,6 +160,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             filtersContainer.isHidden = true
         }
     }
+    
+    @IBAction func cardDoubleTapped(_ sender: UITapGestureRecognizer) {
+        print("favorite")
+    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource {
