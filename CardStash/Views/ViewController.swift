@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
     
     // MARK: Outlets
     
@@ -21,15 +21,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     private let viewModel = ViewModel()
     
+    let tapGestureRecognizer = UITapGestureRecognizer()
+    let doubleTapGestureRecognizer = UITapGestureRecognizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        tapGestureRecognizer.addTarget(self, action: #selector(handleTap(_:)))
+        doubleTapGestureRecognizer.addTarget(self, action: #selector(handleDoubleTap(_:)))
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
         searchBar.searchTextField.textColor = UIColor.white
         searchBar.searchTextField.tintColor = UIColor.lightGray
+        
+        doubleTapGestureRecognizer.delegate = self
+        doubleTapGestureRecognizer.numberOfTapsRequired = 2
+        self.collectionView.addGestureRecognizer(doubleTapGestureRecognizer)
+        
+        tapGestureRecognizer.delegate = self
+        self.collectionView.addGestureRecognizer(tapGestureRecognizer)
         
         configureSortingPopUpButton()
         
@@ -161,10 +173,24 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    @IBAction func cardDoubleTapped(_ sender: UITapGestureRecognizer) {
-        print("favorite")
+    @objc func handleTap(_ sender: UIGestureRecognizer) {
+        print("tippity tap")
+        performSegue(withIdentifier: "viewCard", sender: Any?.self)
     }
     
+    @objc func handleDoubleTap(_ sender: UIGestureRecognizer) {
+        print("double tapped")
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+             shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+       // Don't recognize a single tap until a double-tap fails.
+        if gestureRecognizer == self.tapGestureRecognizer &&
+            otherGestureRecognizer == self.doubleTapGestureRecognizer {
+            return true
+       }
+       return false
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -192,7 +218,6 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.setSelected(index: indexPath.row)
-        performSegue(withIdentifier: "viewCard", sender: Any?.self)
     }
 }
 

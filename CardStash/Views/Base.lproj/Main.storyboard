@@ -86,6 +86,7 @@
                                         <buttonConfiguration key="configuration" style="tinted" title="Sort By"/>
                                     </button>
                                 </subviews>
+                                <gestureRecognizers/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NYg-U9-gKH">
                                 <rect key="frame" x="2.6666666666666572" y="151" width="388" height="626"/>
@@ -160,7 +161,6 @@
                                             <outlet property="cardImage" destination="pPm-YD-0Q7" id="SVk-7e-ht7"/>
                                             <outlet property="name" destination="iGb-uk-E3S" id="764-q2-leZ"/>
                                             <outlet property="set" destination="dd0-d3-tJH" id="ZoY-GY-Hn1"/>
-                                            <outletCollection property="gestureRecognizers" destination="yhu-Hf-YmO" appends="YES" id="qw8-M9-EOv"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -263,11 +263,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer numberOfTapsRequired="2" id="yhu-Hf-YmO">
-                    <connections>
-                        <action selector="cardDoubleTapped:" destination="BYZ-38-t0r" id="i3d-3X-1Md"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="38.931297709923662" y="3.5211267605633805"/>
         </scene>

@@ -10,13 +10,31 @@ import CoreData
 
 extension ViewModel {
     
-    func addCardToCollection(card: Card, quantity: Int) {
+    func changeCardQuantity(card: Card, quantity: Int) {
         var managedContext = CoreDataManager.shared.managedObjectContext
         
-        let newCardSave = SavedCard(context: managedContext)
-        
-        newCardSave.id = card.id
-        newCardSave.quantity = Int16(quantity)
+        if let existingSave = CachedData.owned[card.id ?? ""] {
+            guard let query = card.id else { return }
+            // update quantity for old save, get object to rewrite
+            let fetchCard: NSFetchRequest<SavedCard> = SavedCard.fetchRequest()
+            fetchCard.predicate = NSPredicate(format: "id == %@", query)
+            
+            guard let result = try? managedContext.fetch(fetchCard).first else { return }
+            
+            if quantity == 0 {
+                // delete if quantity changed to 0
+                managedContext.delete(result)
+                CachedData.owned.removeValue(forKey: query)
+            } else {
+                // update quantity
+                result.quantity = Int16(quantity)
+            }
+        } else {
+            let newCardSave = SavedCard(context: managedContext)
+            
+            newCardSave.id = card.id
+            newCardSave.quantity = Int16(quantity)
+        }
         
         do {
             try managedContext.save()
@@ -58,6 +76,20 @@ extension ViewModel {
         } catch {
             // error
         }
+    }
+    
+    func deleteFave(card: Card, index: Int) {
+        var managedContext = CoreDataManager.shared.managedObjectContext
+        
+        guard let query = card.id else { return }
+        // update quantity for old save, get object to rewrite
+        let fetchCard: NSFetchRequest<FaveCard> = FaveCard.fetchRequest()
+        fetchCard.predicate = NSPredicate(format: "id == %@", query)
+        
+        guard let result = try? managedContext.fetch(fetchCard).first else { return }
+        
+        managedContext.delete(result)
+        CachedData.faved.remove(at: index)
     }
     
     func loadFaves() {
