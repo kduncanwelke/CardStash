@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -143,14 +144,36 @@
                                                         <constraint firstAttribute="height" constant="30" id="sPL-fU-siX"/>
                                                     </constraints>
                                                 </stackView>
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NKy-00-qa5">
+                                                    <rect key="frame" x="128" y="1.9999999999999982" width="20" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="idQ-CX-avo"/>
+                                                        <constraint firstAttribute="width" constant="20" id="x8P-vd-mdR"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j80-cx-wBF">
+                                                    <rect key="frame" x="0.0" y="90" width="25" height="25"/>
+                                                    <color key="backgroundColor" name="AccentColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="t0u-9X-lm6"/>
+                                                        <constraint firstAttribute="width" constant="25" id="vPw-uc-7bf"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dOW-c9-vlm" secondAttribute="bottom" constant="2" id="AZi-FQ-Ac9"/>
                                                 <constraint firstItem="dOW-c9-vlm" firstAttribute="top" secondItem="pPm-YD-0Q7" secondAttribute="bottom" constant="8" id="Efd-t3-NLy"/>
+                                                <constraint firstItem="j80-cx-wBF" firstAttribute="top" secondItem="O0m-ws-4sx" secondAttribute="top" constant="90" id="J0h-9W-aRZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="pPm-YD-0Q7" secondAttribute="trailing" constant="2" id="QEq-mn-JQV"/>
                                                 <constraint firstItem="pPm-YD-0Q7" firstAttribute="leading" secondItem="O0m-ws-4sx" secondAttribute="leading" constant="2" id="VVk-wf-1gO"/>
                                                 <constraint firstItem="dOW-c9-vlm" firstAttribute="leading" secondItem="O0m-ws-4sx" secondAttribute="leading" constant="5" id="ZxI-8W-IeY"/>
+                                                <constraint firstItem="NKy-00-qa5" firstAttribute="top" secondItem="O0m-ws-4sx" secondAttribute="top" id="fpv-lD-m1i"/>
                                                 <constraint firstAttribute="trailing" secondItem="dOW-c9-vlm" secondAttribute="trailing" constant="5" id="gHe-ux-bl4"/>
+                                                <constraint firstItem="j80-cx-wBF" firstAttribute="leading" secondItem="O0m-ws-4sx" secondAttribute="leading" id="hg3-cg-P0h"/>
+                                                <constraint firstAttribute="trailing" secondItem="NKy-00-qa5" secondAttribute="trailing" constant="2" id="nQu-3K-u7R"/>
                                                 <constraint firstItem="pPm-YD-0Q7" firstAttribute="top" secondItem="O0m-ws-4sx" secondAttribute="top" id="vjD-7u-84Q"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -159,7 +182,9 @@
                                         <connections>
                                             <outlet property="HP" destination="ljJ-VJ-2mj" id="cxQ-TC-UYE"/>
                                             <outlet property="cardImage" destination="pPm-YD-0Q7" id="SVk-7e-ht7"/>
+                                            <outlet property="heart" destination="NKy-00-qa5" id="4af-bJ-Yjs"/>
                                             <outlet property="name" destination="iGb-uk-E3S" id="764-q2-leZ"/>
+                                            <outlet property="ownedLabel" destination="j80-cx-wBF" id="4gD-gZ-Q6a"/>
                                             <outlet property="set" destination="dd0-d3-tJH" id="ZoY-GY-Hn1"/>
                                         </connections>
                                     </collectionViewCell>
@@ -888,11 +913,23 @@
                                     <action selector="closedTapped:" destination="LpI-ni-FQF" eventType="touchUpInside" id="Mtq-Re-rek"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g9-Pa-e2e">
+                                <rect key="frame" x="20" y="11" width="110" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Favorite?" titleAlignment="leading">
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favoriteButtonTapped:" destination="LpI-ni-FQF" eventType="touchUpInside" id="QlY-DO-GiU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TIW-0G-scS"/>
                         <color key="backgroundColor" red="0.1334633892" green="0.0285047836" blue="0.26694681190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="PjB-tm-D3m" firstAttribute="top" secondItem="TIW-0G-scS" secondAttribute="top" id="9m5-tz-LMs"/>
+                            <constraint firstItem="4g9-Pa-e2e" firstAttribute="leading" secondItem="TIW-0G-scS" secondAttribute="leading" constant="20" id="SL9-h7-b7s"/>
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="top" secondItem="hCO-81-ipF" secondAttribute="top" constant="54" id="TWm-G7-2WI"/>
                             <constraint firstItem="TIW-0G-scS" firstAttribute="bottom" secondItem="PjB-tm-D3m" secondAttribute="bottom" id="VMZ-yp-jQW"/>
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="trailing" secondItem="TIW-0G-scS" secondAttribute="trailing" id="WzF-S3-CEn"/>
@@ -904,11 +941,13 @@
                             <constraint firstItem="TIW-0G-scS" firstAttribute="trailing" secondItem="PjB-tm-D3m" secondAttribute="trailing" id="lgZ-rH-3JR"/>
                             <constraint firstItem="TIW-0G-scS" firstAttribute="trailing" secondItem="9MS-P5-WHo" secondAttribute="trailing" constant="20" id="nNx-Kx-JCj"/>
                             <constraint firstItem="9MS-P5-WHo" firstAttribute="top" secondItem="TIW-0G-scS" secondAttribute="top" constant="11" id="oZ4-A6-fhh"/>
+                            <constraint firstItem="4g9-Pa-e2e" firstAttribute="top" secondItem="TIW-0G-scS" secondAttribute="top" constant="11" id="p20-q5-22j"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cardImage" destination="EGL-uh-9ZB" id="Ukj-RM-TKp"/>
                         <outlet property="cardSet" destination="zHh-cv-WJH" id="b0D-1W-gGn"/>
+                        <outlet property="favoriteButton" destination="4g9-Pa-e2e" id="fa1-C4-P4Q"/>
                         <outlet property="flavorText" destination="6HA-ku-Oz7" id="D5M-2b-yj4"/>
                         <outlet property="hp" destination="F36-aJ-5dn" id="hnl-kJ-20r"/>
                         <outlet property="name" destination="t0G-cb-0cp" id="gdX-ss-1Gy"/>
@@ -930,7 +969,11 @@
         <image name="cardplaceholder" width="734" height="1024"/>
         <image name="checkmark.rectangle.stack.fill" catalog="system" width="126" height="128"/>
         <image name="greetingcard.fill" catalog="system" width="105" height="128"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

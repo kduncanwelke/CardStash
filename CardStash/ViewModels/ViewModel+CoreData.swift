@@ -28,12 +28,16 @@ extension ViewModel {
             } else {
                 // update quantity
                 result.quantity = Int16(quantity)
+                CachedData.owned[query] = quantity
             }
         } else {
             let newCardSave = SavedCard(context: managedContext)
             
-            newCardSave.id = card.id
+            guard let identifier = card.id else { return }
+            
+            newCardSave.id = identifier
             newCardSave.quantity = Int16(quantity)
+            CachedData.owned[identifier] = quantity
         }
         
         do {
@@ -68,7 +72,9 @@ extension ViewModel {
         
         let newFave = FaveCard(context: managedContext)
         
-        newFave.id = card.id
+        guard let identifier = card.id else { return }
+        newFave.id = identifier
+        CachedData.faved[identifier] = "fave"
      
         do {
             try managedContext.save()
@@ -78,7 +84,7 @@ extension ViewModel {
         }
     }
     
-    func deleteFave(card: Card, index: Int) {
+    func deleteFave(card: Card) {
         var managedContext = CoreDataManager.shared.managedObjectContext
         
         guard let query = card.id else { return }
@@ -88,8 +94,9 @@ extension ViewModel {
         
         guard let result = try? managedContext.fetch(fetchCard).first else { return }
         
+        print("deleted fave")
         managedContext.delete(result)
-        CachedData.faved.remove(at: index)
+        CachedData.faved.removeValue(forKey: query)
     }
     
     func loadFaves() {
@@ -103,7 +110,7 @@ extension ViewModel {
             // put loaded cards in cache
             for card in loaded {
                 if let identifier = card.id {
-                    CachedData.faved.append(identifier)
+                    CachedData.faved[identifier] = "fave"
                 }
             }
         } catch let error as NSError {

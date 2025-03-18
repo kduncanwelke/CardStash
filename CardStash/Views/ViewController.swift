@@ -23,12 +23,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     let tapGestureRecognizer = UITapGestureRecognizer()
     let doubleTapGestureRecognizer = UITapGestureRecognizer()
+    let leftSwipeGestureRecognizer = UISwipeGestureRecognizer()
+    let rightSwipeGestureRecognizer = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tapGestureRecognizer.addTarget(self, action: #selector(handleTap(_:)))
         doubleTapGestureRecognizer.addTarget(self, action: #selector(handleDoubleTap(_:)))
+        leftSwipeGestureRecognizer.addTarget(self, action: #selector(handleLeftSwipe(_:)))
+        rightSwipeGestureRecognizer.addTarget(self, action: #selector(handleRightSwipe(_:)))
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -43,9 +47,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         tapGestureRecognizer.delegate = self
         self.collectionView.addGestureRecognizer(tapGestureRecognizer)
         
+        leftSwipeGestureRecognizer.delegate = self
+        leftSwipeGestureRecognizer.direction = .left
+        self.collectionView.addGestureRecognizer(leftSwipeGestureRecognizer)
+        
+        rightSwipeGestureRecognizer.delegate = self
+        rightSwipeGestureRecognizer.direction = .right
+        self.collectionView.addGestureRecognizer(rightSwipeGestureRecognizer)
+        
         configureSortingPopUpButton()
         
+        // core data
         viewModel.loadCards()
+        viewModel.loadFaves()
         
         viewModel.getInitialCards()
         getCards()
@@ -180,6 +194,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @objc func handleDoubleTap(_ sender: UIGestureRecognizer) {
         print("double tapped")
+        viewModel.isFavorite()
+        if let path = viewModel.getIndexPath() {
+            collectionView.reloadItems(at: [path])
+        }
+    }
+    
+    @objc func handleLeftSwipe(_ sender: UIGestureRecognizer) {
+        let location = leftSwipeGestureRecognizer.location(in: self.collectionView)
+        let index = self.collectionView.indexPathForItem(at: location)
+    
+        if let path = index {
+            viewModel.setSelected(index: path.row)
+            viewModel.setIndexPath(index: path)
+            viewModel.decreaseOwned()
+            collectionView.reloadItems(at: [path])
+        }
+    }
+    
+    @objc func handleRightSwipe(_ sender: UIGestureRecognizer) {
+        let location = rightSwipeGestureRecognizer.location(in: self.collectionView)
+        let index = self.collectionView.indexPathForItem(at: location)
+     
+        if let path = index {
+            viewModel.setSelected(index: path.row)
+            viewModel.setIndexPath(index: path)
+            viewModel.increaseOwned()
+            collectionView.reloadItems(at: [path])
+        }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
@@ -218,6 +260,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.setSelected(index: indexPath.row)
+        viewModel.setIndexPath(index: indexPath)
     }
 }
 

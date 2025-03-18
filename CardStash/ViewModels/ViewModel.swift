@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class ViewModel {
     
@@ -52,6 +53,15 @@ public class ViewModel {
     func getCardCount() -> Int {
         let cards = getCardSource()
         return cards.count
+    }
+    
+    func showHideHeart(index: Int) -> Bool {
+        let cards = getCardSource()
+        if let fave = CachedData.faved[cards[index].id ?? ""] {
+            return false
+        } else {
+            return true
+        }
     }
     
     func getCardName(index: Int) -> String {
@@ -128,12 +138,105 @@ public class ViewModel {
         }
     }
     
+    func getHeartForCard(index: Int) -> UIImage? {
+        let cards = getCardSource()
+        let current = CachedData.selected
+        if let faved = CachedData.faved[cards[current].id ?? ""] {
+            // it's a favorite
+            return UIImage(systemName: "heart.fill")
+        } else {
+            return UIImage(systemName: "heart")
+        }
+    }
+    
+    func getHeartTitle(index: Int) -> String {
+        let cards = getCardSource()
+        let current = CachedData.selected
+        if let faved = CachedData.faved[cards[current].id ?? ""] {
+            // it's a favorite
+            return "Favorited"
+        } else {
+            return "Favorite?"
+        }
+    }
+    
+    func setIndexPath(index: IndexPath) {
+        CachedData.indexPath = index
+    }
+    
+    func getIndexPath() -> IndexPath? {
+        return CachedData.indexPath
+    }
+    
     func setSelected(index: Int) {
         CachedData.selected = index
     }
     
     func getSelected() -> Int {
         return CachedData.selected
+    }
+    
+    func isFavorite() {
+        let source = getCardSource()
+        let current = CachedData.selected
+        if let faved = CachedData.faved[source[current].id ?? ""] {
+            // if a favorite, unfavorite it
+            deleteFave(card: source[current])
+        } else {
+            print("faved \(source[current].id)")
+            addFave(card: source[current])
+        }
+    }
+    
+    func showOwned(index: Int) -> Bool {
+        let source = getCardSource()
+        if let owned = CachedData.owned[source[index].id ?? ""] {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func getOwnedQuantity(index: Int) -> String {
+        let source = getCardSource()
+        if let owned = CachedData.owned[source[index].id ?? ""] {
+            return "\(owned)"
+        } else {
+            return "\(0)"
+        }
+    }
+    
+    func increaseOwned() {
+        var newQuantity: Int
+
+        let source = getCardSource()
+        let current = CachedData.selected
+        if let owned = CachedData.owned[source[current].id ?? ""] {
+            // already owned
+            newQuantity = owned + 1
+        } else {
+            newQuantity = 1
+        }
+        
+        changeCardQuantity(card: source[current], quantity: newQuantity)
+    }
+    
+    func decreaseOwned() {
+        var newQuantity: Int
+
+        let source = getCardSource()
+        let current = CachedData.selected
+        if let owned = CachedData.owned[source[current].id ?? ""] {
+            // already owned
+            if owned > 0 {
+                newQuantity = owned - 1
+                changeCardQuantity(card: source[current], quantity: newQuantity)
+            } else {
+                newQuantity = 0
+            }
+        } else {
+            newQuantity = 0
+        }
     }
     
     // MARK: Data manipulation

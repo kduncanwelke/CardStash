@@ -17,10 +17,11 @@ struct CachedData {
     
     static var sorted: [Card] = []
     
+    static var indexPath: IndexPath?
     static var selected: Int = 0
     
     // owned cards dictionary for ID and quantity
     static var owned: [String: Int] = [:]
     
-    static var faved: [String] = []
+    static var faved: [String: String] = [:]
 }

@@ -24,6 +24,7 @@ class CardDetailViewController: UIViewController {
     @IBOutlet weak var resistance: UILabel!
     @IBOutlet weak var retreatCost: UILabel!
     @IBOutlet weak var flavorText: UILabel!
+    @IBOutlet weak var favoriteButton: UIButton!
     
     // MARK: Variables
     
@@ -48,6 +49,8 @@ class CardDetailViewController: UIViewController {
         resistance.text = viewModel.getCardResistance(index: viewModel.getSelected())
         retreatCost.text = viewModel.getCardRetreatCost(index: viewModel.getSelected())
         flavorText.text = viewModel.getCardFlavorText(index: viewModel.getSelected())
+        favoriteButton.titleLabel?.text = viewModel.getHeartTitle(index: viewModel.getSelected())
+        favoriteButton.imageView?.image = viewModel.getHeartForCard(index: viewModel.getSelected())
         
         DispatchQueue.main.async {
             if let url = self.viewModel.getImageURL(index: self.viewModel.getSelected()) {
@@ -65,6 +68,15 @@ class CardDetailViewController: UIViewController {
     }
     
     // MARK: IBActions
+    
+    @IBAction func favoriteButtonTapped(_ sender: UIButton) {
+        print("tapped")
+        viewModel.isFavorite()
+        
+        // TODO: update button and collectionview
+        favoriteButton.titleLabel?.text = viewModel.getHeartTitle(index: viewModel.getSelected())
+        favoriteButton.imageView?.image = viewModel.getHeartForCard(index: viewModel.getSelected())
+    }
     
     @IBAction func closedTapped(_ sender: UIButton) {
         self.dismiss(animated: true)

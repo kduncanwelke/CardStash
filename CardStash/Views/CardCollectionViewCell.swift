@@ -19,6 +19,8 @@ class CardCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var set: UILabel!
     @IBOutlet weak var HP: UILabel!
+    @IBOutlet weak var heart: UIImageView!
+    @IBOutlet weak var ownedLabel: UILabel!
     
     static let reuseIdentifier = "cardCell"
     
@@ -27,6 +29,11 @@ class CardCollectionViewCell: UICollectionViewCell {
         HP.text = viewModel.getCardHP(index: index)
         set.text = viewModel.getCardSet(index: index)
         cardImage.image = UIImage(named: "cardplaceholder")
+        heart.isHidden = viewModel.showHideHeart(index: index)
+        ownedLabel.isHidden = viewModel.showOwned(index: index)
+        ownedLabel.text = viewModel.getOwnedQuantity(index: index)
+        ownedLabel.layer.masksToBounds = true
+        ownedLabel.layer.cornerRadius = 12
         
         DispatchQueue.main.async {
             if let url = self.viewModel.getImageURL(index: index) {
