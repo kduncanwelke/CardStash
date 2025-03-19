@@ -138,6 +138,16 @@ public class ViewModel {
         }
     }
     
+    func getCardRarity(index: Int) -> String {
+        let cards = getCardSource()
+        
+        if let rarity = cards[index].rarity {
+            return rarity
+        } else {
+            return "Unknown"
+        }
+    }
+    
     func getHeartForCard(index: Int) -> UIImage? {
         let cards = getCardSource()
         let current = CachedData.selected
@@ -204,6 +214,22 @@ public class ViewModel {
         } else {
             return "\(0)"
         }
+    }
+    
+    func getOwnedNumber(index: Int) -> Int {
+        let source = getCardSource()
+        if let owned = CachedData.owned[source[index].id ?? ""] {
+            return owned
+        } else {
+            return 0
+        }
+    }
+    
+    func changeOwned(quantity: Int) {
+        let source = getCardSource()
+        let current = CachedData.selected
+        
+        changeCardQuantity(card: source[current], quantity: quantity)
     }
     
     func increaseOwned() {

@@ -6,6 +6,7 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -146,6 +147,7 @@
                                                 </stackView>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NKy-00-qa5">
                                                     <rect key="frame" x="128" y="1.9999999999999982" width="20" height="17"/>
+                                                    <color key="tintColor" systemColor="systemOrangeColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="idQ-CX-avo"/>
                                                         <constraint firstAttribute="width" constant="20" id="x8P-vd-mdR"/>
@@ -224,6 +226,9 @@
                                                     <imageReference key="image" image="checkmark.rectangle.stack.fill" catalog="system" symbolScale="large"/>
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="ownedPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Lr-eZ-E9o"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KI5-Zv-j2d">
                                                 <rect key="frame" x="184" y="0.0" width="77" height="56.333333333333336"/>
@@ -277,7 +282,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="lk4-oT-YIJ" id="C7s-Uz-qxS"/>
                         <outlet property="collectionView" destination="NYg-U9-gKH" id="IgM-mb-z6y"/>
@@ -651,7 +656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrM-7W-K6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765.64885496183206" y="-101.40845070422536"/>
+            <point key="canvasLocation" x="766" y="-174"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="H5y-s7-Izl">
@@ -747,10 +752,10 @@
                                 <rect key="frame" x="0.0" y="54" width="393" height="788"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-GX-rqy">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="777.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="890"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YjK-ss-Ud4">
-                                                <rect key="frame" x="15" y="0.0" width="363" height="762.66666666666663"/>
+                                                <rect key="frame" x="15" y="0.0" width="363" height="875"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zp9-Fq-F1F">
                                                         <rect key="frame" x="0.0" y="0.0" width="363" height="18.333333333333332"/>
@@ -815,15 +820,77 @@
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19T-kI-YI7">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q29-qT-ICX">
                                                         <rect key="frame" x="0.0" y="645.66666666666663" width="363" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="CqP-D7-dqD"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Hdk-Zq-jJL">
+                                                        <rect key="frame" x="0.0" y="661.66666666666663" width="363" height="18.333333333333371"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rarity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2w-jL-Sp8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="181.66666666666666" height="18.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rarity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9d-Dw-WFA">
+                                                                <rect key="frame" x="181.66666666666663" y="0.0" width="181.33333333333337" height="18.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19T-kI-YI7">
+                                                        <rect key="frame" x="0.0" y="695" width="363" height="1"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="gEl-7m-1JJ"/>
                                                         </constraints>
                                                     </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0w-4P-nzy">
+                                                        <rect key="frame" x="0.0" y="711" width="363" height="32"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Owned" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPc-v2-zae">
+                                                                <rect key="frame" x="0.0" y="0.0" width="222" height="32"/>
+                                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="250" translatesAutoresizingMaskIntoConstraints="NO" id="Q2T-Bd-lFb">
+                                                                <rect key="frame" x="222" y="0.0" width="94" height="32"/>
+                                                                <color key="backgroundColor" name="AccentColor"/>
+                                                            </stepper>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9R-jl-WWq">
+                                                                <rect key="frame" x="316" y="0.0" width="15" height="32"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="15" id="1pe-Kh-ub3"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljl-wt-7gQ">
+                                                                <rect key="frame" x="331" y="0.0" width="32" height="32"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="32" id="15k-pq-nfx"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58s-qq-bLU">
+                                                        <rect key="frame" x="0.0" y="758" width="363" height="1"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="b4j-z7-klF"/>
+                                                        </constraints>
+                                                    </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lc0-G1-hjx">
-                                                        <rect key="frame" x="0.0" y="661.66666666666663" width="363" height="18.333333333333371"/>
+                                                        <rect key="frame" x="0.0" y="774" width="363" height="18.333333333333371"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weakness" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXT-V9-Wux">
                                                                 <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="18.333333333333332"/>
@@ -846,7 +913,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="una-Cd-jzA">
-                                                        <rect key="frame" x="0.0" y="695" width="363" height="18.333333333333371"/>
+                                                        <rect key="frame" x="0.0" y="807.33333333333337" width="363" height="18.333333333333371"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weakness" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ozi-hg-Rca">
                                                                 <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="18.333333333333332"/>
@@ -869,14 +936,14 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tZ-Zs-ZWt">
-                                                        <rect key="frame" x="0.0" y="728.33333333333337" width="363" height="1"/>
+                                                        <rect key="frame" x="0.0" y="840.66666666666663" width="363" height="1"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="1" id="7EC-jo-4dA"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Flavor text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HA-ku-Oz7">
-                                                        <rect key="frame" x="0.0" y="744.33333333333337" width="363" height="18.333333333333371"/>
+                                                        <rect key="frame" x="0.0" y="856.66666666666663" width="363" height="18.333333333333371"/>
                                                         <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -913,13 +980,13 @@
                                     <action selector="closedTapped:" destination="LpI-ni-FQF" eventType="touchUpInside" id="Mtq-Re-rek"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g9-Pa-e2e">
-                                <rect key="frame" x="20" y="11" width="110" height="34.333333333333336"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" imagePlacement="leading" title="Favorite?" titleAlignment="leading">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g9-Pa-e2e">
+                                <rect key="frame" x="20" y="11" width="86.666666666666671" height="34.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Favorite?">
                                     <imageReference key="image" image="heart" catalog="system" symbolScale="default"/>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
-                                </buttonConfiguration>
+                                </state>
                                 <connections>
                                     <action selector="favoriteButtonTapped:" destination="LpI-ni-FQF" eventType="touchUpInside" id="QlY-DO-GiU"/>
                                 </connections>
@@ -933,6 +1000,7 @@
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="top" secondItem="hCO-81-ipF" secondAttribute="top" constant="54" id="TWm-G7-2WI"/>
                             <constraint firstItem="TIW-0G-scS" firstAttribute="bottom" secondItem="PjB-tm-D3m" secondAttribute="bottom" id="VMZ-yp-jQW"/>
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="trailing" secondItem="TIW-0G-scS" secondAttribute="trailing" id="WzF-S3-CEn"/>
+                            <constraint firstItem="4g9-Pa-e2e" firstAttribute="height" secondItem="9MS-P5-WHo" secondAttribute="height" id="bFT-go-CxY"/>
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="leading" secondItem="TIW-0G-scS" secondAttribute="leading" id="d1i-p9-dM0"/>
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="height" secondItem="hCO-81-ipF" secondAttribute="height" multiplier="0.896714" priority="250" id="fbS-I0-1gp"/>
                             <constraint firstItem="ow8-Ge-dXC" firstAttribute="width" secondItem="hCO-81-ipF" secondAttribute="width" id="fmL-X6-Tzf"/>
@@ -952,9 +1020,12 @@
                         <outlet property="hp" destination="F36-aJ-5dn" id="hnl-kJ-20r"/>
                         <outlet property="name" destination="t0G-cb-0cp" id="gdX-ss-1Gy"/>
                         <outlet property="number" destination="Z7z-MS-fP7" id="AHS-OW-AQk"/>
+                        <outlet property="ownedLabel" destination="ljl-wt-7gQ" id="22H-zy-O8X"/>
+                        <outlet property="rarity" destination="O9d-Dw-WFA" id="m33-cT-LZp"/>
                         <outlet property="resistance" destination="O5O-U5-t9w" id="Dsz-7h-bbc"/>
                         <outlet property="retreatCost" destination="t6N-ZT-1iS" id="Zlg-y8-JwM"/>
                         <outlet property="stage" destination="Dzj-z9-7hA" id="6WC-Lh-cVX"/>
+                        <outlet property="stepper" destination="Q2T-Bd-lFb" id="Quv-8w-ywe"/>
                         <outlet property="type" destination="usS-NX-taZ" id="ohG-HC-fN1"/>
                         <outlet property="weakness" destination="Ozi-hg-Rca" id="7fv-Hb-4cR"/>
                     </connections>
@@ -975,5 +1046,8 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

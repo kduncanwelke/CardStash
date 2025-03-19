@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UpdateCellDelegate {
     
     // MARK: Outlets
     
@@ -165,6 +165,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         })
     }
     
+    func updateCell(index: IndexPath) {
+        collectionView.reloadItems(at: [index])
+    }
+    
     // MARK: IBActions
     
     @IBAction func pressGo(_ sender: UIButton) {
@@ -188,12 +192,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @objc func handleTap(_ sender: UIGestureRecognizer) {
-        print("tippity tap")
         performSegue(withIdentifier: "viewCard", sender: Any?.self)
     }
     
     @objc func handleDoubleTap(_ sender: UIGestureRecognizer) {
-        print("double tapped")
         viewModel.isFavorite()
         if let path = viewModel.getIndexPath() {
             collectionView.reloadItems(at: [path])
@@ -232,6 +234,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return true
        }
        return false
+    }
+    
+    @IBAction func ownedPressed(_ sender: UIButton) {
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cardDetailViewController = segue.destination as? CardDetailViewController else { return }
+        cardDetailViewController.updateCellDelegate = self
     }
 }
 

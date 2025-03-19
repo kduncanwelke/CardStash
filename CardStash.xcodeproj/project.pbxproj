@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		062109FD2D6798180013D97A /* NukeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062109FC2D6798180013D97A /* NukeOptions.swift */; };
 		062109FF2D67AA9F0013D97A /* Eazy Chat.otf in Resources */ = {isa = PBXBuildFile; fileRef = 062109FE2D67AA9F0013D97A /* Eazy Chat.otf */; };
+		0624BB2C2D8B405700D5725D /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0624BB2B2D8B405300D5725D /* Delegates.swift */; };
 		06A2E40E2D6CF5EB00F46F96 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */; };
 		06A747342D679140008B92DD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747152D679140008B92DD /* Card.swift */; };
 		06A747352D679140008B92DD /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A747162D679140008B92DD /* CardSet.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		062109FC2D6798180013D97A /* NukeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeOptions.swift; sourceTree = "<group>"; };
 		062109FE2D67AA9F0013D97A /* Eazy Chat.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eazy Chat.otf"; sourceTree = "<group>"; };
+		0624BB2B2D8B405300D5725D /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		065429D52D66477D00E7789D /* CardStash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CardStash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		06A747152D679140008B92DD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				06A7472A2D679140008B92DD /* Views */,
 				06A7472B2D679140008B92DD /* AppDelegate.swift */,
 				06A7472C2D679140008B92DD /* Assets.xcassets */,
+				0624BB2B2D8B405300D5725D /* Delegates.swift */,
 				062109FE2D67AA9F0013D97A /* Eazy Chat.otf */,
 				06A7472D2D679140008B92DD /* SavedCard.xcdatamodeld */,
 				06F9A9322D7F58E4005CE41B /* CoreDataManager.swift */,
@@ -324,6 +327,7 @@
 				06F9A9332D7F58E4005CE41B /* CoreDataManager.swift in Sources */,
 				06A7473A2D679140008B92DD /* Endpoint.swift in Sources */,
 				06A7473B2D679140008B92DD /* Errors.swift in Sources */,
+				0624BB2C2D8B405700D5725D /* Delegates.swift in Sources */,
 				06A7473C2D679140008B92DD /* JSONDecoder.swift in Sources */,
 				06A7473D2D679140008B92DD /* Key.swift in Sources */,
 				06F9A9352D7F5BAD005CE41B /* ViewModel+CoreData.swift in Sources */,
