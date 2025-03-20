@@ -8,5 +8,5 @@
 import Foundation
 
 protocol UpdateCellDelegate: AnyObject {
-    func updateCell(index: IndexPath)
+    func updateCell(index: IndexPath, wasDeleted: Bool)
 }

@@ -20,8 +20,17 @@ struct CachedData {
     static var indexPath: IndexPath?
     static var selected: Int = 0
     
-    // owned cards dictionary for ID and quantity
+    // dictionaries for owned and favorited cards
     static var owned: [String: Int] = [:]
-    
+    static var ownedCards: [Card] = []
     static var faved: [String: String] = [:]
+    static var faveCards: [Card] = []
+    
+    static var currentCardType: SelectedCards = .all
+}
+
+enum SelectedCards {
+    case all
+    case owned
+    case faves
 }

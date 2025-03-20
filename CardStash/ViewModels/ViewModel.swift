@@ -36,17 +36,95 @@ public class ViewModel {
         }
     }
     
+    func getOwnedCards(completion: @escaping () -> Void) {
+        DataManager<Cards>.fetch() { result in
+            switch result {
+            case .success(let response):
+                // wipe cache
+                CachedData.ownedCards = []
+                
+                if let data = response.first {
+                    var foundCards: [Card] = []
+                    
+                    for card in data.data {
+                        foundCards.append(card)
+                        print(card)
+                    }
+                    
+                    CachedData.ownedCards = foundCards
+                }
+               
+                completion()
+            case .failure(let error):
+                print(error)
+                completion()
+            }
+        }
+    }
+    
+    func getFaveCards(completion: @escaping () -> Void) {
+        DataManager<Cards>.fetch() { result in
+            switch result {
+            case .success(let response):
+                // wipe cache
+                CachedData.faveCards = []
+                
+                if let data = response.first {
+                    var foundCards: [Card] = []
+                    
+                    for card in data.data {
+                        foundCards.append(card)
+                        print(card)
+                    }
+                    
+                    CachedData.faveCards = foundCards
+                }
+               
+                completion()
+            case .failure(let error):
+                print(error)
+                completion()
+            }
+        }
+    }
+    
     func getInitialCards() {
         SearchParameters.cardSet = "base"
         createSearchTerms()
         SearchParameters.cardSet = ""
     }
     
+    func switchToAll() {
+        CachedData.currentCardType = .all
+        SearchParameters.isNewSearch = false
+    }
+    
+    func switchToOwned() {
+        CachedData.currentCardType = .owned
+        createSavedSearchTerms()
+    }
+    
+    func switchToFaves() {
+        CachedData.currentCardType = .faves
+        createSavedSearchTerms()
+    }
+    
+    func getCardType() -> SelectedCards {
+        return CachedData.currentCardType
+    }
+    
     func getCardSource() -> [Card] {
-        if SearchParameters.isNewSearch {
-            return CachedData.cards
-        } else {
-            return CachedData.sorted
+        switch CachedData.currentCardType {
+        case .all:
+            if SearchParameters.isNewSearch {
+                return CachedData.cards
+            } else {
+                return CachedData.sorted
+            }
+        case .owned:
+            return CachedData.ownedCards
+        case .faves:
+            return CachedData.faveCards
         }
     }
     
@@ -193,7 +271,6 @@ public class ViewModel {
             // if a favorite, unfavorite it
             deleteFave(card: source[current])
         } else {
-            print("faved \(source[current].id)")
             addFave(card: source[current])
         }
     }
@@ -247,7 +324,7 @@ public class ViewModel {
         changeCardQuantity(card: source[current], quantity: newQuantity)
     }
     
-    func decreaseOwned() {
+    func decreaseOwnedWithDelete() -> Bool {
         var newQuantity: Int
 
         let source = getCardSource()
@@ -257,11 +334,18 @@ public class ViewModel {
             if owned > 0 {
                 newQuantity = owned - 1
                 changeCardQuantity(card: source[current], quantity: newQuantity)
+                if newQuantity == 0 {
+                    return true
+                } else {
+                    return false
+                }
             } else {
                 newQuantity = 0
+                return false
             }
         } else {
             newQuantity = 0
+            return false
         }
     }
     
@@ -324,6 +408,9 @@ public class ViewModel {
         
         // check if search is new, or just having new sorting applied
         if SearchParameters.isNewSearch == false {
+            
+            // TODO: check filter/search for owned and faves
+            
             // sort
             switch SearchParameters.sortingKind {
             case .auto:
@@ -624,6 +711,29 @@ public class ViewModel {
             SearchParameters.isNewSearch = false
         } else {
             SearchParameters.isNewSearch = true
+        }
+    }
+    
+    func createSavedSearchTerms() {
+        switch CachedData.currentCardType {
+        case .all:
+            return
+        case .owned:
+            var base = ""
+            for (id, quantity) in CachedData.owned {
+                base.append("id:\(id) OR ")
+            }
+            // remove last OR and spaces, it breaks the query
+            let searchTerms = base.dropLast(4)
+            SearchParameters.searchTerms = String(searchTerms)
+        case .faves:
+            var base = ""
+            for (id, quantity) in CachedData.faved {
+                base.append("id:\(id) OR ")
+            }
+            // remove last OR and spaces, it breaks the query
+            let searchTerms = base.dropLast(4)
+            SearchParameters.searchTerms = String(searchTerms)
         }
     }
 }

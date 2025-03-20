@@ -16,6 +16,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var sortingButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var filtersContainer: UIView!
+    @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var ownedButton: UIButton!
+    @IBOutlet weak var decksButton: UIButton!
+    @IBOutlet weak var favesButton: UIButton!
     
     // MARK: Variables
     
@@ -165,8 +169,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         })
     }
     
-    func updateCell(index: IndexPath) {
-        collectionView.reloadItems(at: [index])
+    func updateCell(index: IndexPath, wasDeleted: Bool) {
+        if wasDeleted {
+            collectionView.deleteItems(at: [index])
+        } else {
+            collectionView.reloadItems(at: [index])
+        }
     }
     
     // MARK: IBActions
@@ -197,20 +205,35 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @objc func handleDoubleTap(_ sender: UIGestureRecognizer) {
         viewModel.isFavorite()
+        
         if let path = viewModel.getIndexPath() {
-            collectionView.reloadItems(at: [path])
+            if viewModel.getCardType() == .faves {
+                collectionView.deleteItems(at: [path])
+            } else {
+                collectionView.reloadItems(at: [path])
+            }
         }
     }
     
     @objc func handleLeftSwipe(_ sender: UIGestureRecognizer) {
         let location = leftSwipeGestureRecognizer.location(in: self.collectionView)
         let index = self.collectionView.indexPathForItem(at: location)
-    
+
         if let path = index {
             viewModel.setSelected(index: path.row)
             viewModel.setIndexPath(index: path)
-            viewModel.decreaseOwned()
-            collectionView.reloadItems(at: [path])
+            
+            if viewModel.getCardType() == .owned {
+                var deleted = viewModel.decreaseOwnedWithDelete()
+                if deleted {
+                    collectionView.deleteItems(at: [path])
+                } else {
+                    collectionView.reloadItems(at: [path])
+                }
+            } else {
+                viewModel.decreaseOwnedWithDelete()
+                collectionView.reloadItems(at: [path])
+            }
         }
     }
     
@@ -236,8 +259,63 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
        return false
     }
     
-    @IBAction func ownedPressed(_ sender: UIButton) {
+    @IBAction func homePressed(_ sender: UIButton) {
+        homeButton.tintColor = .white
+        ownedButton.tintColor = .tintColor
+        decksButton.tintColor = .tintColor
+        favesButton.tintColor = .tintColor
         
+        viewModel.switchToAll()
+        activityIndicator.startAnimating()
+        viewModel.getCards(completion: { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+                self?.collectionView.reloadData()
+            }
+        })
+    }
+    
+    @IBAction func ownedPressed(_ sender: UIButton) {
+        homeButton.tintColor = .tintColor
+        ownedButton.tintColor = .white
+        decksButton.tintColor = .tintColor
+        favesButton.tintColor = .tintColor
+        
+        viewModel.switchToOwned()
+        activityIndicator.startAnimating()
+        viewModel.getOwnedCards(completion: { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+                self?.collectionView.reloadData()
+            }
+        })
+    }
+    
+    @IBAction func decksPressed(_ sender: UIButton) {
+        homeButton.tintColor = .tintColor
+        ownedButton.tintColor = .tintColor
+        decksButton.tintColor = .white
+        favesButton.tintColor = .tintColor
+        performSegue(withIdentifier: "viewDecks", sender: Any?.self)
+    }
+    
+    @IBAction func favesPressed(_ sender: UIButton) {
+        homeButton.tintColor = .tintColor
+        ownedButton.tintColor = .tintColor
+        decksButton.tintColor = .tintColor
+        favesButton.tintColor = .white
+        
+        viewModel.switchToFaves()
+        activityIndicator.startAnimating()
+        viewModel.getFaveCards(completion: { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+                self?.collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+                self?.collectionView.reloadData()
+            }
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -23,6 +23,8 @@ extension ViewModel {
             
             if quantity == 0 {
                 // delete if quantity changed to 0
+                let new = CachedData.ownedCards.filter({ $0.id != query })
+                CachedData.ownedCards = new
                 managedContext.delete(result)
                 CachedData.owned.removeValue(forKey: query)
             } else {
@@ -97,6 +99,9 @@ extension ViewModel {
         print("deleted fave")
         managedContext.delete(result)
         CachedData.faved.removeValue(forKey: query)
+        
+        let new = CachedData.faveCards.filter({ $0.id != query })
+        CachedData.faveCards = new
     }
     
     func loadFaves() {

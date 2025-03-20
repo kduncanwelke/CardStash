@@ -85,7 +85,7 @@ class CardDetailViewController: UIViewController {
         favoriteButton.setImage(viewModel.getHeartForCard(index: viewModel.getSelected()), for: .normal)
         
         if let index = viewModel.getIndexPath() {
-            updateCellDelegate?.updateCell(index: index)
+            updateCellDelegate?.updateCell(index: index, wasDeleted: false)
         }
     }
     
@@ -99,9 +99,14 @@ class CardDetailViewController: UIViewController {
         let newValue = Int(stepper.value)
         if newValue != viewModel.getOwnedNumber(index: viewModel.getSelected()) {
             viewModel.changeOwned(quantity: newValue)
+            var wasDeleted = false
+            
+            if newValue == 0 {
+                wasDeleted = true
+            }
             
             if let index = viewModel.getIndexPath() {
-                updateCellDelegate?.updateCell(index: index)
+                updateCellDelegate?.updateCell(index: index, wasDeleted: wasDeleted)
             }
         }
             
