@@ -9,7 +9,7 @@ import Foundation
 
 struct CachedData {
     static var cards: [Card] = []
-    static var cardSets: [CardSets] = []
+    static var cardSets: [CardSet] = []
     static var types: [String] = []
     static var subtypes: [String] = []
     static var superTypes: [String] = []
@@ -20,17 +20,23 @@ struct CachedData {
     static var indexPath: IndexPath?
     static var selected: Int = 0
     
-    // dictionaries for owned and favorited cards
+    // dictionaries (for fast lookup) and arrays (for sorting) for owned and favorited cards
     static var owned: [String: Int] = [:]
     static var ownedCards: [Card] = []
+    static var sortedOwned: [Card] = []
+    
     static var faved: [String: String] = [:]
     static var faveCards: [Card] = []
+    static var sortedFaves: [Card] = []
     
     static var currentCardType: SelectedCards = .all
 }
 
 enum SelectedCards {
     case all
+    case allSorted
     case owned
+    case ownedSorted
     case faves
+    case favesSorted
 }

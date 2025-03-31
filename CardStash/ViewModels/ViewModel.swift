@@ -10,6 +10,49 @@ import UIKit
 
 public class ViewModel {
     
+    // MARK: Card Sets
+    
+    func getCardSets(completion: @escaping () -> Void) {
+        DataManager<CardSets>.fetch() { result in
+            switch result {
+            case .success(let response):
+                // wipe cache
+                CachedData.cardSets = []
+                
+                if let data = response.first {
+                    var foundCardSets: [CardSet] = []
+                    
+                    for cardSet in data.data {
+                        foundCardSets.append(cardSet)
+                        print(cardSet)
+                    }
+                    
+                    CachedData.cardSets = foundCardSets
+                    CachedData.cardSets.insert(CardSet(name: "Any"), at: 0)
+                }
+                
+                completion()
+            case .failure(let error):
+                print(error)
+                completion()
+            }
+        }
+    }
+    
+    func getCardSetCount() -> Int {
+        return CachedData.cardSets.count
+    }
+    
+    func getCardSetTitle(index: Int) -> String {
+        return CachedData.cardSets[index].name ?? ""
+    }
+    
+    func setSelectedCardSet(index: Int) {
+        SearchParameters.cardSet = CachedData.cardSets[index].name ?? ""
+    }
+    
+    // MARK: Cards
+    
     func getCards(completion: @escaping () -> Void) {
         DataManager<Cards>.fetch() { result in
             switch result {
@@ -94,19 +137,65 @@ public class ViewModel {
         SearchParameters.cardSet = ""
     }
     
-    func switchToAll() {
-        CachedData.currentCardType = .all
-        SearchParameters.isNewSearch = false
-    }
-    
-    func switchToOwned() {
-        CachedData.currentCardType = .owned
-        createSavedSearchTerms()
-    }
-    
-    func switchToFaves() {
-        CachedData.currentCardType = .faves
-        createSavedSearchTerms()
+    func switchTo(source: SelectedCards, completion: @escaping () -> Void) {
+        switch source {
+        case .all:
+            CachedData.currentCardType = .all
+            
+            if CachedData.cards.isEmpty {
+                getInitialCards()
+            }
+            
+            if SearchParameters.sortingKind != .auto {
+                CachedData.currentCardType = .allSorted
+            }
+        case .allSorted:
+            CachedData.currentCardType = .allSorted
+            
+            if SearchParameters.sortingKind == .auto {
+                CachedData.currentCardType = .all
+            }
+        case .owned:
+            CachedData.currentCardType = .owned
+            
+            if !(CachedData.owned.isEmpty) && CachedData.ownedCards.isEmpty {
+                createSavedSearchTerms()
+                getOwnedCards {
+                    completion()
+                }
+            }
+            
+            if SearchParameters.sortingKind != .auto {
+                CachedData.currentCardType = .ownedSorted
+            }
+        case .ownedSorted:
+            CachedData.currentCardType = .ownedSorted
+            
+            if SearchParameters.sortingKind == .auto {
+                CachedData.currentCardType = .owned
+            }
+        case .faves:
+            CachedData.currentCardType = .faves
+            
+            if !(CachedData.faved.isEmpty) && CachedData.faveCards.isEmpty {
+                createSavedSearchTerms()
+                getFaveCards {
+                    completion()
+                }
+            }
+            
+            if SearchParameters.sortingKind != .auto {
+                CachedData.currentCardType = .favesSorted
+            }
+        case .favesSorted:
+            CachedData.currentCardType = .favesSorted
+            
+            if SearchParameters.sortingKind == .auto {
+                CachedData.currentCardType = .faves
+            }
+        }
+        
+        completion()
     }
     
     func getCardType() -> SelectedCards {
@@ -116,15 +205,17 @@ public class ViewModel {
     func getCardSource() -> [Card] {
         switch CachedData.currentCardType {
         case .all:
-            if SearchParameters.isNewSearch {
-                return CachedData.cards
-            } else {
-                return CachedData.sorted
-            }
+            return CachedData.cards
+        case .allSorted:
+            return CachedData.sorted
         case .owned:
             return CachedData.ownedCards
+        case .ownedSorted:
+            return CachedData.sortedOwned
         case .faves:
             return CachedData.faveCards
+        case .favesSorted:
+            return CachedData.sortedFaves
         }
     }
     
@@ -302,6 +393,8 @@ public class ViewModel {
         }
     }
     
+    // MARK: Data manipulation
+    
     func changeOwned(quantity: Int) {
         let source = getCardSource()
         let current = CachedData.selected
@@ -349,8 +442,6 @@ public class ViewModel {
         }
     }
     
-    // MARK: Data manipulation
-    
     func setSearch(search: String, completion: @escaping () -> Void) {
         if let pokedexNumber = Int(search) {
             SearchParameters.pokedexNumber = pokedexNumber
@@ -359,13 +450,16 @@ public class ViewModel {
             SearchParameters.name = search
             SearchParameters.pokedexNumber = 0
         }
-       
-        createSearchTerms()
+        
+        if CachedData.currentCardType == .all {
+            createSearchTerms()
+        }
+
         completion()
     }
     
     func setSorting(kind: Sorting, completion: @escaping () -> Void) {
-        createSearchTerms()
+        print("cards selected \(CachedData.currentCardType)")
         
         switch kind {
         case .auto:
@@ -406,31 +500,33 @@ public class ViewModel {
             SearchParameters.sortingKind = .numberHighLow
         }
         
-        // check if search is new, or just having new sorting applied
-        if SearchParameters.isNewSearch == false {
-            
-            // TODO: check filter/search for owned and faves
-            
+        switch CachedData.currentCardType {
+        case .all:
+            createSearchTerms()
+            // only set sorting for API request when performing a new search, otherwise sort cached
+        case .allSorted:
             // sort
             switch SearchParameters.sortingKind {
             case .auto:
                 // use cached, unsorted cards
                 CachedData.sorted = CachedData.cards
             case .cardSetAZ:
+                print("sort A-Z")
                 CachedData.sorted = CachedData.cards.sorted { cardA, cardB in
                     cardA.set?.name ?? "" < cardB.set?.name ?? ""
                 }
+                
             case .cardSetZA:
                 CachedData.sorted = CachedData.cards.sorted { cardA, cardB in
                     cardA.set?.name ?? "" > cardB.set?.name ?? ""
                 }
             case .hpLowHigh:
                 CachedData.sorted = CachedData.cards.sorted { cardA, cardB in
-                    cardA.hp ?? "" < cardB.hp ?? ""
+                    Int(cardA.hp ?? "0") ?? 0 < Int(cardB.hp ?? "0") ?? 0
                 }
             case .hpHighLow:
                 CachedData.sorted = CachedData.cards.sorted { cardA, cardB in
-                    cardA.hp ?? "" > cardB.hp ?? ""
+                    Int(cardA.hp ?? "0") ?? 0 > Int(cardB.hp ?? "0") ?? 0
                 }
             case .nameAZ:
                 CachedData.sorted = CachedData.cards.sorted { cardA, cardB in
@@ -449,11 +545,84 @@ public class ViewModel {
                     cardA.nationalPokedexNumbers?.first ?? 0 > cardB.nationalPokedexNumbers?.first ?? 0
                 }
             }
-            completion()
-        } else {
-            // no sorting
-            completion()
+        case .ownedSorted, .owned:
+            switch SearchParameters.sortingKind {
+            case .auto:
+                // use cached, unsorted cards
+                CachedData.sortedOwned = CachedData.ownedCards
+            case .cardSetAZ:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    cardA.set?.name ?? "" < cardB.set?.name ?? ""
+                }
+            case .cardSetZA:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    cardA.set?.name ?? "" > cardB.set?.name ?? ""
+                }
+            case .hpLowHigh:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    Int(cardA.hp ?? "0") ?? 0 < Int(cardB.hp ?? "0") ?? 0
+                }
+            case .hpHighLow:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    Int(cardA.hp ?? "0") ?? 0 > Int(cardB.hp ?? "0") ?? 0
+                }
+            case .nameAZ:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    cardA.name ?? "" < cardB.name ?? ""
+                }
+            case .nameZA:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    cardA.name ?? "" > cardB.name ?? ""
+                }
+            case .numberLowHigh:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    cardA.nationalPokedexNumbers?.first ?? 0 < cardB.nationalPokedexNumbers?.first ?? 0
+                }
+            case .numberHighLow:
+                CachedData.sortedOwned = CachedData.ownedCards.sorted { cardA, cardB in
+                    cardA.nationalPokedexNumbers?.first ?? 0 > cardB.nationalPokedexNumbers?.first ?? 0
+                }
+            }
+        case .favesSorted, .faves:
+            switch SearchParameters.sortingKind {
+            case .auto:
+                // use cached, unsorted cards
+                CachedData.sortedFaves = CachedData.faveCards
+            case .cardSetAZ:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.set?.name ?? "" < cardB.set?.name ?? ""
+                }
+            case .cardSetZA:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.set?.name ?? "" > cardB.set?.name ?? ""
+                }
+            case .hpLowHigh:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.hp ?? "" < cardB.hp ?? ""
+                }
+            case .hpHighLow:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    Int(cardA.hp ?? "0") ?? 0 > Int(cardB.hp ?? "0") ?? 0
+                }
+            case .nameAZ:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.name ?? "" < cardB.name ?? ""
+                }
+            case .nameZA:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.name ?? "" > cardB.name ?? ""
+                }
+            case .numberLowHigh:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.nationalPokedexNumbers?.first ?? 0 < cardB.nationalPokedexNumbers?.first ?? 0
+                }
+            case .numberHighLow:
+                CachedData.sortedFaves = CachedData.faveCards.sorted { cardA, cardB in
+                    cardA.nationalPokedexNumbers?.first ?? 0 > cardB.nationalPokedexNumbers?.first ?? 0
+                }
+            }
         }
+        completion()
     }
     
     func isNewSearch() -> Bool {
@@ -624,7 +793,11 @@ public class ViewModel {
         var compiled = base
         
         if SearchParameters.cardSet != "" {
-            compiled += " set.name:\(SearchParameters.cardSet)"
+            if SearchParameters.cardSet != "Any" {
+                compiled += " set.name:\(SearchParameters.cardSet)"
+            } else {
+                SearchParameters.cardSet = ""
+            }
         }
         
         if SearchParameters.type != "" {
@@ -668,14 +841,6 @@ public class ViewModel {
         if SearchParameters.rarity != "" {
             compiled += " rarity:\(SearchParameters.rarity)"
         }
-        
-        if SearchParameters.ability != "" {
-            compiled += " abilities.name:\(SearchParameters.ability)"
-        }
-        
-        if SearchParameters.move != "" {
-            compiled += " attacks.name:\(SearchParameters.move)"
-        }
 
         return compiled
     }
@@ -718,6 +883,8 @@ public class ViewModel {
         switch CachedData.currentCardType {
         case .all:
             return
+        case .allSorted:
+            return
         case .owned:
             var base = ""
             for (id, quantity) in CachedData.owned {
@@ -726,6 +893,8 @@ public class ViewModel {
             // remove last OR and spaces, it breaks the query
             let searchTerms = base.dropLast(4)
             SearchParameters.searchTerms = String(searchTerms)
+        case .ownedSorted:
+            return
         case .faves:
             var base = ""
             for (id, quantity) in CachedData.faved {
@@ -734,6 +903,8 @@ public class ViewModel {
             // remove last OR and spaces, it breaks the query
             let searchTerms = base.dropLast(4)
             SearchParameters.searchTerms = String(searchTerms)
+        case .favesSorted:
+            return
         }
     }
 }

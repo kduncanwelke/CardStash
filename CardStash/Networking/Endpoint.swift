@@ -36,9 +36,9 @@ enum Endpoint {
             return components!.url!
         case .cardSets:
             var components = URLComponents(url: baseURL.appendingPathComponent("sets/"), resolvingAgainstBaseURL: false)
-            components!.queryItems = [
+            /*components!.queryItems = [
                 URLQueryItem(name: "q", value: "name:\(SearchParameters.cardSet)"),
-            ]
+            ]*/
             
             return components!.url!
         case .types:

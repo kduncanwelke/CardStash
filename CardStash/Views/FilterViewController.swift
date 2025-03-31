@@ -21,6 +21,7 @@ class FilterViewController: UIViewController {
     @IBOutlet weak var holoFilter: UIButton!
     @IBOutlet weak var rarityFilter: UIButton!
     @IBOutlet weak var legalityFilter: UIButton!
+    @IBOutlet weak var cardSetPicker: UIPickerView!
     
     // MARK: Variables
     
@@ -29,6 +30,9 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        cardSetPicker.delegate = self
+        cardSetPicker.dataSource = self
+        cardSetPicker.tintColor = .white
         
         configureFilterButton()
         configureWeaknessButton()
@@ -41,6 +45,12 @@ class FilterViewController: UIViewController {
         configureHoloButton()
         configureRarityButton()
         configureLegalityButton()
+        
+        viewModel.getCardSets(completion: { [weak self] in
+            DispatchQueue.main.async {
+                self?.cardSetPicker.reloadAllComponents()
+            }
+        })
     }
     
     // MARK: Custom functions
@@ -413,5 +423,23 @@ class FilterViewController: UIViewController {
             UIAction(title: "Expanded", handler: expandedType),
             UIAction(title: "Unlimited", handler: unlimitedType)
         ])
+    }
+}
+
+extension FilterViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return viewModel.getCardSetCount()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return viewModel.getCardSetTitle(index: row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        viewModel.setSelectedCardSet(index: row)
     }
 }

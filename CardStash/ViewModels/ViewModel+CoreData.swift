@@ -25,6 +25,8 @@ extension ViewModel {
                 // delete if quantity changed to 0
                 let new = CachedData.ownedCards.filter({ $0.id != query })
                 CachedData.ownedCards = new
+                let newSorted = CachedData.sortedOwned.filter({ $0.id != query })
+                CachedData.sortedOwned = newSorted
                 managedContext.delete(result)
                 CachedData.owned.removeValue(forKey: query)
             } else {
@@ -40,6 +42,7 @@ extension ViewModel {
             newCardSave.id = identifier
             newCardSave.quantity = Int16(quantity)
             CachedData.owned[identifier] = quantity
+            CachedData.ownedCards.append(card)
         }
         
         do {
@@ -77,6 +80,7 @@ extension ViewModel {
         guard let identifier = card.id else { return }
         newFave.id = identifier
         CachedData.faved[identifier] = "fave"
+        CachedData.faveCards.append(card)
      
         do {
             try managedContext.save()
@@ -102,6 +106,9 @@ extension ViewModel {
         
         let new = CachedData.faveCards.filter({ $0.id != query })
         CachedData.faveCards = new
+        
+        let newSorted = CachedData.sortedFaves.filter({ $0.id != query })
+        CachedData.sortedFaves = newSorted
     }
     
     func loadFaves() {

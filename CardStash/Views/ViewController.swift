@@ -59,6 +59,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         rightSwipeGestureRecognizer.direction = .right
         self.collectionView.addGestureRecognizer(rightSwipeGestureRecognizer)
         
+        searchBar.tintColor = .white
+        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.attributedPlaceholder =  NSAttributedString.init(string: "Search name or Pokedex #", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        searchBar.searchTextField.leftView?.tintColor = .white
+        
+        if let clearButton = searchBar.searchTextField.value(forKey: "_clearButton") as? UIButton {
+               let templateImage = clearButton.imageView?.image?.withRenderingMode(.alwaysTemplate)
+               clearButton.setImage(templateImage, for: .normal)
+            clearButton.tintColor = .white
+        }
+       
         configureSortingPopUpButton()
         
         // core data
@@ -265,15 +276,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         decksButton.tintColor = .tintColor
         favesButton.tintColor = .tintColor
         
-        viewModel.switchToAll()
         activityIndicator.startAnimating()
-        viewModel.getCards(completion: { [weak self] in
+        viewModel.switchTo(source: .all) { [weak self] in
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
                 self?.collectionView.reloadData()
             }
-        })
+        }
     }
     
     @IBAction func ownedPressed(_ sender: UIButton) {
@@ -282,15 +292,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         decksButton.tintColor = .tintColor
         favesButton.tintColor = .tintColor
         
-        viewModel.switchToOwned()
         activityIndicator.startAnimating()
-        viewModel.getOwnedCards(completion: { [weak self] in
+        viewModel.switchTo(source: .owned) { [weak self] in
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
                 self?.collectionView.reloadData()
             }
-        })
+        }
     }
     
     @IBAction func decksPressed(_ sender: UIButton) {
@@ -307,15 +316,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         decksButton.tintColor = .tintColor
         favesButton.tintColor = .white
         
-        viewModel.switchToFaves()
         activityIndicator.startAnimating()
-        viewModel.getFaveCards(completion: { [weak self] in
+        viewModel.switchTo(source: .faves) { [weak self] in
             DispatchQueue.main.async {
                 self?.activityIndicator.stopAnimating()
                 self?.collectionView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
                 self?.collectionView.reloadData()
             }
-        })
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

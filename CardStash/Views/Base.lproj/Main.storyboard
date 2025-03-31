@@ -33,6 +33,7 @@
                                 <subviews>
                                     <searchBar contentMode="redraw" placeholder="Search name or Pokedex #" translatesAutoresizingMaskIntoConstraints="NO" id="yoW-V5-L1J">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="barTintColor" red="0.1334633892" green="0.0285047836" blue="0.26694681190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <textInputTraits key="textInputTraits" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -198,7 +199,7 @@
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HEy-j8-3LC">
-                                <rect key="frame" x="0.0" y="147" width="393" height="316"/>
+                                <rect key="frame" x="0.0" y="147" width="393" height="499"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="jSy-SB-Xvb" kind="embed" id="Fwe-Ty-6Yk"/>
@@ -308,21 +309,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="15"/>
+            <point key="canvasLocation" x="43.511450381679388" y="14.788732394366198"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="B9A-HB-ZTV">
             <objects>
                 <viewController id="jSy-SB-Xvb" customClass="FilterViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xta-Kc-UBl">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="316"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCZ-ml-qtS">
-                                <rect key="frame" x="3" y="3" width="387" height="310"/>
+                                <rect key="frame" x="3" y="3" width="387" height="493"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bokehbackground" translatesAutoresizingMaskIntoConstraints="NO" id="Bt1-gQ-Ehd">
-                                        <rect key="frame" x="0.0" y="0.0" width="387" height="310"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="387" height="493"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1334633892" green="0.0285047836" blue="0.26694681190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -333,8 +334,8 @@
                                     <constraint firstItem="Bt1-gQ-Ehd" firstAttribute="top" secondItem="fCZ-ml-qtS" secondAttribute="top" id="rel-zI-VUE"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lYX-mT-VEZ">
-                                <rect key="frame" x="15" y="20.000000000000014" width="363" height="218.33333333333337"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="lYX-mT-VEZ">
+                                <rect key="frame" x="15" y="20" width="363" height="464"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-J6-NXn">
                                         <rect key="frame" x="0.0" y="0.0" width="363" height="59.333333333333336"/>
@@ -453,7 +454,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-ra-rtp">
-                                        <rect key="frame" x="0.0" y="79.333333333333329" width="363" height="59.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="84.333333333333329" width="363" height="59.666666666666671"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qph-pL-HRn">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.666666666666664"/>
@@ -465,7 +466,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bR-31-NWu">
-                                                        <rect key="frame" x="0.0" y="25.333333333333346" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="6bR-31-NWu" secondAttribute="height" multiplier="57:17" id="yeT-M4-KyO"/>
                                                         </constraints>
@@ -497,7 +498,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mAs-as-ha1">
-                                                        <rect key="frame" x="0.0" y="25.333333333333346" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="mAs-as-ha1" secondAttribute="height" multiplier="57:17" id="Bqb-tc-Zra"/>
                                                         </constraints>
@@ -527,7 +528,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zk6-6Z-ARf">
-                                                        <rect key="frame" x="0.0" y="25.333333333333346" width="114.33333333333333" height="34.333333333333343"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333332" width="114.33333333333333" height="34.333333333333343"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="zk6-6Z-ARf" secondAttribute="height" multiplier="57:17" id="nCY-TB-Dab"/>
                                                         </constraints>
@@ -549,7 +550,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uks-w7-PUb">
-                                        <rect key="frame" x="0.0" y="159" width="363" height="59.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="169" width="363" height="59.333333333333343"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="j4u-dW-eHX">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.33333333333333" height="59.333333333333336"/>
@@ -641,6 +642,25 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-DY-yX8">
+                                        <rect key="frame" x="0.0" y="253.33333333333331" width="363" height="210.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Set" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3el-FO-FlN">
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="17.333333333333332"/>
+                                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="8za-PM-qj2">
+                                                <rect key="frame" x="0.0" y="27.333333333333371" width="363" height="183.33333333333334"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </pickerView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -648,6 +668,7 @@
                         <color key="backgroundColor" red="0.060035121387298766" green="0.2415759841865989" blue="0.41717317248835706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="lYX-mT-VEZ" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="20" id="19c-5z-J6S"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lYX-mT-VEZ" secondAttribute="bottom" constant="15" id="ADz-NN-EuO"/>
                             <constraint firstItem="fCZ-ml-qtS" firstAttribute="top" secondItem="xta-Kc-UBl" secondAttribute="top" constant="3" id="DF9-40-V7N"/>
                             <constraint firstItem="7bf-J3-oyx" firstAttribute="trailing" secondItem="lYX-mT-VEZ" secondAttribute="trailing" constant="15" id="FgH-wf-0AF"/>
                             <constraint firstItem="lYX-mT-VEZ" firstAttribute="leading" secondItem="xta-Kc-UBl" secondAttribute="leading" constant="15" id="Hjb-Ez-uPO"/>
@@ -657,6 +678,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cardSetPicker" destination="8za-PM-qj2" id="beP-35-Xs6"/>
                         <outlet property="cardTypeFilter" destination="zk6-6Z-ARf" id="VW9-LY-xbm"/>
                         <outlet property="holoFilter" destination="m2W-ro-uGP" id="Ui4-sp-7y8"/>
                         <outlet property="legalityFilter" destination="g50-Tg-isR" id="qkN-oX-WgN"/>
@@ -670,7 +692,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YrM-7W-K6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="-174"/>
+            <point key="canvasLocation" x="765.64885496183206" y="-174.29577464788733"/>
         </scene>
         <!--Card Detail View Controller-->
         <scene sceneID="a3e-cl-xm2">
@@ -967,12 +989,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vIa-do-BaS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767.17557251908397" y="364.78873239436621"/>
+            <point key="canvasLocation" x="767" y="473"/>
         </scene>
-        <!--View Controller-->
+        <!--Decks View Controller-->
         <scene sceneID="J1U-cK-LEC">
             <objects>
-                <viewController id="zTF-TF-4ec" customClass="ViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zTF-TF-4ec" customClass="DecksViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I8B-fh-Z3A">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1020,27 +1042,25 @@
                                                                     <rect key="frame" x="95" y="0.0" width="85" height="116.33333333333333"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="fTN-ch-pXf" secondAttribute="height" multiplier="73:100" id="8TM-JF-1GG"/>
+                                                                        <constraint firstAttribute="width" secondItem="fTN-ch-pXf" secondAttribute="height" multiplier="73:100" id="XGU-Ji-Xdm"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="j4A-eb-m59">
                                                                     <rect key="frame" x="190" y="0.0" width="85" height="116.33333333333333"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="j4A-eb-m59" secondAttribute="height" multiplier="73:100" id="OUE-em-fHd"/>
+                                                                        <constraint firstAttribute="width" secondItem="j4A-eb-m59" secondAttribute="height" multiplier="73:100" id="SU0-SP-f0y"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="F8u-jK-tjd">
                                                                     <rect key="frame" x="285" y="0.0" width="85" height="116.33333333333333"/>
                                                                     <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="F8u-jK-tjd" secondAttribute="height" multiplier="73:100" id="XiW-En-hbB"/>
                                                                         <constraint firstAttribute="width" secondItem="F8u-jK-tjd" secondAttribute="height" multiplier="73:100" id="ZKN-Tk-krZ"/>
+                                                                        <constraint firstAttribute="width" secondItem="F8u-jK-tjd" secondAttribute="height" multiplier="73:100" id="nhW-nz-Hix"/>
                                                                     </constraints>
                                                                 </imageView>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="j4A-eb-m59" firstAttribute="width" secondItem="j4A-eb-m59" secondAttribute="height" multiplier="73:100" id="SU0-SP-f0y"/>
-                                                                <constraint firstItem="fTN-ch-pXf" firstAttribute="width" secondItem="fTN-ch-pXf" secondAttribute="height" multiplier="73:100" id="XGU-Ji-Xdm"/>
-                                                                <constraint firstItem="F8u-jK-tjd" firstAttribute="width" secondItem="F8u-jK-tjd" secondAttribute="height" multiplier="73:100" id="XiW-En-hbB"/>
-                                                                <constraint firstItem="F8u-jK-tjd" firstAttribute="width" secondItem="F8u-jK-tjd" secondAttribute="height" multiplier="73:100" id="nhW-nz-Hix"/>
-                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -1171,15 +1191,15 @@
         <image name="cardplaceholder" width="734" height="1024"/>
         <image name="checkmark.rectangle.stack.fill" catalog="system" width="126" height="128"/>
         <image name="greetingcard.fill" catalog="system" width="105" height="128"/>
-        <image name="heart" width="112" height="112"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart" width="112" height="112"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

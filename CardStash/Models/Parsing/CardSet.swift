@@ -13,11 +13,11 @@ struct CardSets: SearchType {
 }
 
 struct CardSet: Codable {
-    var id: String
-    var name: String
-    var series: String
-    var total: Int
-    var legalities: Legalities
-    var releaseDate: String
-    var images: SetImage
+    var id: String?
+    var name: String?
+    var series: String?
+    var total: Int?
+    var legalities: Legalities?
+    var releaseDate: String?
+    var images: SetImage?
 }
