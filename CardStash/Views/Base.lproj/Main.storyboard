@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -29,7 +29,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p2q-3s-Q35">
-                                <rect key="frame" x="0.0" y="59" width="388" height="35"/>
+                                <rect key="frame" x="0.0" y="118" width="388" height="35"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" placeholder="Search name or Pokedex #" translatesAutoresizingMaskIntoConstraints="NO" id="yoW-V5-L1J">
                                         <rect key="frame" x="0.0" y="0.0" width="328" height="35"/>
@@ -56,7 +56,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Dlw-FU-tG0">
-                                <rect key="frame" x="10" y="104" width="310" height="35"/>
+                                <rect key="frame" x="10" y="163" width="310" height="35"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c76-tn-2uW">
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="35"/>
@@ -92,7 +92,7 @@
                                 <gestureRecognizers/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NYg-U9-gKH">
-                                <rect key="frame" x="2.6666666666666572" y="151" width="388" height="626"/>
+                                <rect key="frame" x="2.6666666666666572" y="210" width="388" height="567"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ONM-gm-VBH">
@@ -699,14 +699,14 @@
             <objects>
                 <viewController id="LpI-ni-FQF" customClass="CardDetailViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCO-81-ipF">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bokehbackground" translatesAutoresizingMaskIntoConstraints="NO" id="PjB-tm-D3m">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow8-Ge-dXC">
-                                <rect key="frame" x="0.0" y="54" width="393" height="788"/>
+                                <rect key="frame" x="0.0" y="54" width="393" height="729"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omb-GX-rqy">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="890"/>
@@ -930,7 +930,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="VzB-k2-eXP"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9MS-P5-WHo">
-                                <rect key="frame" x="306" y="11" width="67" height="34.333333333333336"/>
+                                <rect key="frame" x="306" y="70" width="67" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Close"/>
                                 <connections>
@@ -938,7 +938,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4g9-Pa-e2e">
-                                <rect key="frame" x="20" y="11" width="86.666666666666671" height="34.333333333333336"/>
+                                <rect key="frame" x="20" y="70" width="86.666666666666671" height="34.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Favorite?">
@@ -994,7 +994,7 @@
         <!--Decks View Controller-->
         <scene sceneID="J1U-cK-LEC">
             <objects>
-                <viewController id="zTF-TF-4ec" customClass="DecksViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="zTF-TF-4ec" customClass="DecksViewController" customModule="CardStash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I8B-fh-Z3A">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1002,8 +1002,14 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bokehbackground" translatesAutoresizingMaskIntoConstraints="NO" id="1Hq-rR-kbR">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Decks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJt-S9-0Vz">
+                                <rect key="frame" x="157.66666666666666" y="72" width="78" height="18.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Eazy-Chat" family="Eazy Chat" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nlo-Hy-X58">
-                                <rect key="frame" x="2.6666666666666572" y="61.666666666666686" width="388" height="715.33333333333326"/>
+                                <rect key="frame" x="2.6666666666666572" y="120.66666666666669" width="388" height="656.33333333333326"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OPL-Kv-hEb">
@@ -1013,7 +1019,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="deckCell" id="xuM-6Z-9iP">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="deckCell" id="xuM-6Z-9iP" customClass="DeckCollectionViewCell" customModule="CardStash" customModuleProvider="target">
                                         <rect key="frame" x="4" y="0.0" width="380" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lIY-Hk-WLg">
@@ -1078,8 +1084,11 @@
                                         <gestureRecognizers/>
                                         <size key="customSize" width="380" height="170"/>
                                         <connections>
-                                            <outlet property="cardImage" destination="Cfl-Nb-vbH" id="ime-rc-8Jz"/>
-                                            <outlet property="name" destination="5RG-Ih-3zE" id="hUD-kV-75r"/>
+                                            <outlet property="cardImage1" destination="Cfl-Nb-vbH" id="hcN-sF-h8Y"/>
+                                            <outlet property="cardImage2" destination="fTN-ch-pXf" id="ZaG-YV-HOH"/>
+                                            <outlet property="cardImage3" destination="j4A-eb-m59" id="Tvq-XG-BNc"/>
+                                            <outlet property="cardImage4" destination="F8u-jK-tjd" id="EfK-Lp-BPc"/>
+                                            <outlet property="deckName" destination="5RG-Ih-3zE" id="fFR-CB-ANr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1125,9 +1134,6 @@
                                                     <imageReference key="image" image="greetingcard.fill" catalog="system" symbolScale="large"/>
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                                 </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="decksPressed:" destination="zTF-TF-4ec" eventType="touchUpInside" id="DP7-aH-Qo6"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84e-gu-5dM">
                                                 <rect key="frame" x="276" y="0.0" width="77" height="56.333333333333336"/>
@@ -1151,21 +1157,42 @@
                                     <constraint firstItem="DHK-Vb-WN9" firstAttribute="leading" secondItem="cEQ-DA-hh7" secondAttribute="leading" constant="20" id="l1z-Rp-t1y"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-4H-YBQ">
+                                <rect key="frame" x="314" y="64" width="67" height="34.333333333333343"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Close"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="zTF-TF-4ec" eventType="touchUpInside" id="QU6-iR-AZB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-p8-RWC">
+                                <rect key="frame" x="12" y="64" width="93.333333333333329" height="34.333333333333343"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add New"/>
+                                <connections>
+                                    <action selector="addNewPressed:" destination="zTF-TF-4ec" eventType="touchUpInside" id="eIy-FD-H3f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4yv-BA-NVz"/>
                         <color key="backgroundColor" red="0.1334633892" green="0.0285047836" blue="0.26694681190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="AQ4-p8-RWC" firstAttribute="leading" secondItem="I8B-fh-Z3A" secondAttribute="leading" constant="12" id="3bg-lw-z6s"/>
                             <constraint firstItem="1Hq-rR-kbR" firstAttribute="trailing" secondItem="4yv-BA-NVz" secondAttribute="trailing" id="7vZ-RH-BmH"/>
                             <constraint firstItem="1Hq-rR-kbR" firstAttribute="leading" secondItem="4yv-BA-NVz" secondAttribute="leading" id="9U7-I9-FuQ"/>
+                            <constraint firstItem="qJt-S9-0Vz" firstAttribute="top" secondItem="I8B-fh-Z3A" secondAttribute="top" constant="72" id="Eff-PB-CLA"/>
                             <constraint firstAttribute="bottom" secondItem="1Hq-rR-kbR" secondAttribute="bottom" id="GaN-RG-gbY"/>
                             <constraint firstAttribute="trailing" secondItem="cEQ-DA-hh7" secondAttribute="trailing" id="NmQ-VE-OiY"/>
                             <constraint firstAttribute="bottom" secondItem="cEQ-DA-hh7" secondAttribute="bottom" id="P95-SL-W0x"/>
                             <constraint firstItem="nlo-Hy-X58" firstAttribute="leading" secondItem="4yv-BA-NVz" secondAttribute="leading" constant="2.5" id="Pnm-sv-vbe"/>
                             <constraint firstItem="nlo-Hy-X58" firstAttribute="top" secondItem="4yv-BA-NVz" secondAttribute="top" constant="2.5" id="QHu-bL-w5M"/>
+                            <constraint firstAttribute="trailing" secondItem="6gH-4H-YBQ" secondAttribute="trailing" constant="12" id="RQV-hM-0Zu"/>
+                            <constraint firstItem="qJt-S9-0Vz" firstAttribute="centerX" secondItem="I8B-fh-Z3A" secondAttribute="centerX" id="Z6W-dr-zVH"/>
+                            <constraint firstItem="6gH-4H-YBQ" firstAttribute="top" secondItem="I8B-fh-Z3A" secondAttribute="top" constant="64" id="hrl-3M-dRV"/>
                             <constraint firstItem="4yv-BA-NVz" firstAttribute="trailing" secondItem="nlo-Hy-X58" secondAttribute="trailing" constant="2.5" id="jbx-dp-hOp"/>
                             <constraint firstItem="nlo-Hy-X58" firstAttribute="bottom" secondItem="cEQ-DA-hh7" secondAttribute="top" id="lrM-eL-SHO"/>
                             <constraint firstItem="1Hq-rR-kbR" firstAttribute="top" secondItem="I8B-fh-Z3A" secondAttribute="top" id="w91-ef-L7a"/>
+                            <constraint firstItem="AQ4-p8-RWC" firstAttribute="top" secondItem="I8B-fh-Z3A" secondAttribute="top" constant="64" id="yKp-R7-Sbw"/>
                             <constraint firstItem="cEQ-DA-hh7" firstAttribute="leading" secondItem="I8B-fh-Z3A" secondAttribute="leading" id="yxo-ZC-Hd4"/>
                         </constraints>
                     </view>
@@ -1173,17 +1200,13 @@
                     <navigationItem key="navigationItem" id="nJg-9v-ydP"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="4Ec-tn-bDR" id="bcR-wi-UBK"/>
-                        <outlet property="collectionView" destination="nlo-Hy-X58" id="aSd-w3-9em"/>
-                        <outlet property="decksButton" destination="uyX-p0-anO" id="51S-NP-fWm"/>
-                        <outlet property="favesButton" destination="84e-gu-5dM" id="BR9-lN-vH9"/>
-                        <outlet property="homeButton" destination="XCa-Rz-hCS" id="bpg-io-6hS"/>
-                        <outlet property="ownedButton" destination="cEe-QF-rhr" id="oDO-zH-LZo"/>
+                        <outlet property="activityIndicator" destination="4Ec-tn-bDR" id="Iyi-cZ-S7D"/>
+                        <outlet property="deckCollectionView" destination="nlo-Hy-X58" id="bPx-lw-Bd4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCc-MU-mc2" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44" y="703"/>
+            <point key="canvasLocation" x="44" y="727"/>
         </scene>
     </scenes>
     <resources>
@@ -1191,8 +1214,8 @@
         <image name="cardplaceholder" width="734" height="1024"/>
         <image name="checkmark.rectangle.stack.fill" catalog="system" width="126" height="128"/>
         <image name="greetingcard.fill" catalog="system" width="105" height="128"/>
-        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart" width="112" height="112"/>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <namedColor name="AccentColor">

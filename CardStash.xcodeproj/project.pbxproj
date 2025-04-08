@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06119B302DA5CADB00F9F771 /* DeckCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06119B2F2DA5CADB00F9F771 /* DeckCollectionViewCell.swift */; };
 		062109FD2D6798180013D97A /* NukeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062109FC2D6798180013D97A /* NukeOptions.swift */; };
 		062109FF2D67AA9F0013D97A /* Eazy Chat.otf in Resources */ = {isa = PBXBuildFile; fileRef = 062109FE2D67AA9F0013D97A /* Eazy Chat.otf */; };
 		0624BB2C2D8B405700D5725D /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0624BB2B2D8B405300D5725D /* Delegates.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06119B2F2DA5CADB00F9F771 /* DeckCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCollectionViewCell.swift; sourceTree = "<group>"; };
 		062109FC2D6798180013D97A /* NukeOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NukeOptions.swift; sourceTree = "<group>"; };
 		062109FE2D67AA9F0013D97A /* Eazy Chat.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Eazy Chat.otf"; sourceTree = "<group>"; };
 		0624BB2B2D8B405300D5725D /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				06A747262D679140008B92DD /* CardCollectionViewCell.swift */,
 				06A747282D679140008B92DD /* Main.storyboard */,
+				06119B2F2DA5CADB00F9F771 /* DeckCollectionViewCell.swift */,
 				06A2E40D2D6CF5EB00F46F96 /* FilterViewController.swift */,
 				06A747292D679140008B92DD /* ViewController.swift */,
 				066C1A5F2D8DC99600D5297C /* DecksViewController.swift */,
@@ -281,9 +284,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CardStash/Pods-CardStash-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CardStash/Pods-CardStash-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -339,6 +346,7 @@
 				06DEBA4A2D723AA70067A687 /* CardDetailViewController.swift in Sources */,
 				06A7473E2D679140008B92DD /* Networker.swift in Sources */,
 				06A7473F2D679140008B92DD /* NetworkMonitor.swift in Sources */,
+				06119B302DA5CADB00F9F771 /* DeckCollectionViewCell.swift in Sources */,
 				06A747402D679140008B92DD /* ViewModel.swift in Sources */,
 				06A747412D679140008B92DD /* CardCollectionViewCell.swift in Sources */,
 				06A747422D679140008B92DD /* ViewController.swift in Sources */,

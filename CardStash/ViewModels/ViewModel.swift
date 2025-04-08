@@ -27,7 +27,11 @@ public class ViewModel {
                         print(cardSet)
                     }
                     
-                    CachedData.cardSets = foundCardSets
+                    var alphabetized = foundCardSets.sorted { cardsetA, cardsetB in
+                        cardsetA.name ?? "" < cardsetB.name ?? ""
+                    }
+                    
+                    CachedData.cardSets = alphabetized
                     CachedData.cardSets.insert(CardSet(name: "Any"), at: 0)
                 }
                 
@@ -48,7 +52,7 @@ public class ViewModel {
     }
     
     func setSelectedCardSet(index: Int) {
-        SearchParameters.cardSet = CachedData.cardSets[index].name ?? ""
+        SearchParameters.cardSet = CachedData.cardSets[index].id ?? ""
     }
     
     // MARK: Cards
@@ -132,9 +136,9 @@ public class ViewModel {
     }
     
     func getInitialCards() {
-        SearchParameters.cardSet = "base"
+        SearchParameters.cardSet = "base1"
         createSearchTerms()
-        SearchParameters.cardSet = ""
+        //SearchParameters.cardSet = ""
     }
     
     func switchTo(source: SelectedCards, completion: @escaping () -> Void) {
@@ -149,6 +153,8 @@ public class ViewModel {
             if SearchParameters.sortingKind != .auto {
                 CachedData.currentCardType = .allSorted
             }
+            
+            createSearchTerms()
         case .allSorted:
             CachedData.currentCardType = .allSorted
             
@@ -500,12 +506,17 @@ public class ViewModel {
             SearchParameters.sortingKind = .numberHighLow
         }
         
+        switchTo(source: CachedData.currentCardType) {
+            
+        }
+        
         switch CachedData.currentCardType {
         case .all:
-            createSearchTerms()
+            print("all")
             // only set sorting for API request when performing a new search, otherwise sort cached
         case .allSorted:
             // sort
+            print("all sorted")
             switch SearchParameters.sortingKind {
             case .auto:
                 // use cached, unsorted cards
@@ -546,6 +557,7 @@ public class ViewModel {
                 }
             }
         case .ownedSorted, .owned:
+            print("owned")
             switch SearchParameters.sortingKind {
             case .auto:
                 // use cached, unsorted cards
@@ -584,6 +596,7 @@ public class ViewModel {
                 }
             }
         case .favesSorted, .faves:
+            print("faves")
             switch SearchParameters.sortingKind {
             case .auto:
                 // use cached, unsorted cards
@@ -794,7 +807,7 @@ public class ViewModel {
         
         if SearchParameters.cardSet != "" {
             if SearchParameters.cardSet != "Any" {
-                compiled += " set.name:\(SearchParameters.cardSet)"
+                compiled += " set.id:\(SearchParameters.cardSet)"
             } else {
                 SearchParameters.cardSet = ""
             }

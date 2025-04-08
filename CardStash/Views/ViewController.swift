@@ -303,10 +303,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     @IBAction func decksPressed(_ sender: UIButton) {
-        homeButton.tintColor = .tintColor
-        ownedButton.tintColor = .tintColor
-        decksButton.tintColor = .white
-        favesButton.tintColor = .tintColor
         performSegue(withIdentifier: "viewDecks", sender: Any?.self)
     }
     
