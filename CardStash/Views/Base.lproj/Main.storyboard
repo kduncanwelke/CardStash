@@ -304,7 +304,7 @@
                         <outlet property="searchBar" destination="yoW-V5-L1J" id="Zen-LD-HdS"/>
                         <outlet property="sortingButton" destination="K1D-3K-osC" id="RgU-km-Zq9"/>
                         <segue destination="LpI-ni-FQF" kind="presentation" identifier="viewCard" id="IxZ-2k-qIP"/>
-                        <segue destination="zTF-TF-4ec" kind="show" identifier="viewDecks" id="Fly-np-Uoe"/>
+                        <segue destination="zTF-TF-4ec" kind="show" identifier="viewDecks" animates="NO" id="Fly-np-Uoe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1013,7 +1013,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OPL-Kv-hEb">
-                                    <size key="itemSize" width="150" height="220"/>
+                                    <size key="itemSize" width="380" height="170"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1069,9 +1069,6 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="dXb-Ud-BkA"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -1157,13 +1154,6 @@
                                     <constraint firstItem="DHK-Vb-WN9" firstAttribute="leading" secondItem="cEQ-DA-hh7" secondAttribute="leading" constant="20" id="l1z-Rp-t1y"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6gH-4H-YBQ">
-                                <rect key="frame" x="314" y="64" width="67" height="34.333333333333343"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Close"/>
-                                <connections>
-                                    <action selector="closePressed:" destination="zTF-TF-4ec" eventType="touchUpInside" id="QU6-iR-AZB"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ4-p8-RWC">
                                 <rect key="frame" x="12" y="64" width="93.333333333333329" height="34.333333333333343"/>
                                 <state key="normal" title="Button"/>
@@ -1185,10 +1175,8 @@
                             <constraint firstAttribute="trailing" secondItem="cEQ-DA-hh7" secondAttribute="trailing" id="NmQ-VE-OiY"/>
                             <constraint firstAttribute="bottom" secondItem="cEQ-DA-hh7" secondAttribute="bottom" id="P95-SL-W0x"/>
                             <constraint firstItem="nlo-Hy-X58" firstAttribute="leading" secondItem="4yv-BA-NVz" secondAttribute="leading" constant="2.5" id="Pnm-sv-vbe"/>
-                            <constraint firstItem="nlo-Hy-X58" firstAttribute="top" secondItem="4yv-BA-NVz" secondAttribute="top" constant="2.5" id="QHu-bL-w5M"/>
-                            <constraint firstAttribute="trailing" secondItem="6gH-4H-YBQ" secondAttribute="trailing" constant="12" id="RQV-hM-0Zu"/>
                             <constraint firstItem="qJt-S9-0Vz" firstAttribute="centerX" secondItem="I8B-fh-Z3A" secondAttribute="centerX" id="Z6W-dr-zVH"/>
-                            <constraint firstItem="6gH-4H-YBQ" firstAttribute="top" secondItem="I8B-fh-Z3A" secondAttribute="top" constant="64" id="hrl-3M-dRV"/>
+                            <constraint firstItem="nlo-Hy-X58" firstAttribute="top" secondItem="qJt-S9-0Vz" secondAttribute="bottom" constant="30.333333333333357" id="ewp-rh-uuE"/>
                             <constraint firstItem="4yv-BA-NVz" firstAttribute="trailing" secondItem="nlo-Hy-X58" secondAttribute="trailing" constant="2.5" id="jbx-dp-hOp"/>
                             <constraint firstItem="nlo-Hy-X58" firstAttribute="bottom" secondItem="cEQ-DA-hh7" secondAttribute="top" id="lrM-eL-SHO"/>
                             <constraint firstItem="1Hq-rR-kbR" firstAttribute="top" secondItem="I8B-fh-Z3A" secondAttribute="top" id="w91-ef-L7a"/>
@@ -1214,8 +1202,8 @@
         <image name="cardplaceholder" width="734" height="1024"/>
         <image name="checkmark.rectangle.stack.fill" catalog="system" width="126" height="128"/>
         <image name="greetingcard.fill" catalog="system" width="105" height="128"/>
-        <image name="heart" width="112" height="112"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart" width="112" height="112"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <namedColor name="AccentColor">

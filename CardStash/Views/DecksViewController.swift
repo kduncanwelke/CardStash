@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class DecksViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class DecksViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: IBOutlets
     
@@ -33,10 +33,23 @@ class DecksViewController: UIViewController, UICollectionViewDelegate, UICollect
     @IBAction func addNewPressed(_ sender: UIButton) {
     }
     
-    @IBAction func closePressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    @IBAction func homePressed(_ sender: UIButton) {
+        // TODO: Show correct button selected
+        self.dismiss(animated: false)
     }
     
+    @IBAction func ownedPressed(_ sender: UIButton) {
+        // TODO: Show correct button selected
+        self.dismiss(animated: false)
+    }
+    
+    @IBAction func favesPressed(_ sender: UIButton) {
+        // TODO: Show correct button selected
+        self.dismiss(animated: false)
+    }
+}
+
+extension DecksViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
     }
@@ -49,15 +62,13 @@ class DecksViewController: UIViewController, UICollectionViewDelegate, UICollect
         return cell
     }
     
-    @IBAction func homePressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = self.view.frame.size.width - 15.0
+        let height = width * 0.44
+        return CGSize(width: width, height: height)
     }
     
-    @IBAction func ownedPressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
-    }
-    
-    @IBAction func favesPressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
     }
 }
